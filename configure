@@ -1,0 +1,18 @@
+# This doesn't do anything yet
+# But it should just simply replace these variables in file names and file contents
+
+-   `__PROJECT_NAME__`
+
+    -   Note this must be a valid C99 extended identifier (otherwise the Xcode check dependencies step fails). It cannot contain spaces.
+
+-   `__ORGANIZATION NAME__`
+
+-   `com.AN.ORGANIZATION.IDENTIFIER`
+
+-   `__AUTHOR NAME__`
+
+-   `__TODAYS_DATE__`
+
+-   `__TODAYS_YEAR__`
+
+-   `__GITHUB_USERNAME__`

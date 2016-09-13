@@ -1,0 +1,10 @@
+use_frameworks!
+
+target 'iOS Example' do
+  pod '__PROJECT_NAME__', :path => '../'
+
+  target 'iOS ExampleUITests' do
+    inherit! :search_paths
+    "Quick', '~> 0.8"
+  end
+end
