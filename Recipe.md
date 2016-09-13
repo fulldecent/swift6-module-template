@@ -280,6 +280,8 @@ All of these instructions must be completed on the same calendar day.
 
     6.  (SOME OF THESE FILES ABOVE ALSE REQUIRE SOME SUBSTITUTIONS TO BE MADE)
 
+    7.  Add a Package.swift file like https://raw.githubusercontent.com/Alamofire/Alamofire/master/Package.swift
+
 Using it
 --------
 
