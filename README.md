@@ -19,8 +19,7 @@ It will then ask you some questions and create your project for you. You then ad
 
 ## Contributing
 
-See the file `Recipe.md` for the complete steps (e.g. Open Xcode, make new project, click here, type that, ...) of how we made the template.
+See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, ...) of how we made the template.
 
  - [x] Add preliminary recipe and template
  - [ ] Please help confirm this recipe works and help make it the best it can be
- 
