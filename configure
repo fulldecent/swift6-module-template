@@ -10,11 +10,11 @@ end
 def replace_variables_in_files(substitutions)
   Dir.glob("**/*") do |file_name|
     next if File.directory?(file_name)
-    text = File.binread(file_name)
+    text = IO.binread(file_name)
     substitutions.each do |old, new|
       text.gsub!(old, new)
     end
-    File.binwrite(file_name, text)
+    IO.binwrite(file_name, text)
   end
 end
 
