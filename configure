@@ -1,18 +1,41 @@
-# This doesn't do anything yet
-# But it should just simply replace these variables in file names and file contents
+#!/usr/bin/ruby
 
--   `__PROJECT_NAME__`
+substitutions = {
+  '__PROJECT_NAME__' => 'MyProject',
+  '__ORGANIZATION NAME__' => 'Awesome Org',
+  'com.AN.ORGANIZATION.IDENTIFIER' => 'com.awesome',
+  '__AUTHOR NAME__' => 'Mr McAwesome',
+  '__TODAYS_DATE__' => 'Jan 32, 2032',
+  '__TODAYS_YEAR__' => '2032',
+  '__GITHUB_USERNAME__' => 'awesome_octocat'
+}
 
-    -   Note this must be a valid C99 extended identifier (otherwise the Xcode check dependencies step fails). It cannot contain spaces.
+`cp -r __PROJECT_NAME__ NEW`
 
--   `__ORGANIZATION NAME__`
+def replace_variables_in_files
+  Dir.glob("__PROJECT_NAME__/**/*") do |file_name|
+    next if File.directory?(file_name)
+    # See https://robots.thoughtbot.com/fight-back-utf-8-invalid-byte-sequences
+    text = File.read(file_name).encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+    substitutions.each do |old, new|
+      text.gsub!(old, new)
+    end
+    File.open(file_name, "w") { |file| file.puts text }
+  end
+end
 
--   `com.AN.ORGANIZATION.IDENTIFIER`
+## CD FIRST
+def replace_variables_in_file_names
+  Dir.foreach('.') do |file_name|
+    next if file_name == '.' or file_name == '..'
+    substitutions.each do |old, new|
+# make this work
+    end
+# and then recurse
+  end
+end
 
--   `__AUTHOR NAME__`
+# USE THOSE TWO FUNCTIONS
 
--   `__TODAYS_DATE__`
 
--   `__TODAYS_YEAR__`
-
--   `__GITHUB_USERNAME__`
+puts "DONE, your project is now ready to use at MyProject/"
