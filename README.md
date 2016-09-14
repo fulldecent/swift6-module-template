@@ -1,7 +1,7 @@
 # Swift 3 Module Template
 Use this template as a starting point for any Swift 3 module that you want other people to include in their projects.
 
-**STATUS: This template is ready to work in production code. The configurator should be improved.**
+**STATUS: This template is ready to work in production code.**
 
 ## Features
 Your new Swift 3 module will immediately have working, compilable code, and all these features:
