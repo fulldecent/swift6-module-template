@@ -1,9 +1,11 @@
-# swift-package
-This recipe explains exactly how to set up a great Swift package for modular reuse. It also includes a configurator that asks you a few questions and gives you a fully-functional Swift module to start with.
+# Swift 3 Module Template
+Use this template as a starting point for any Swift 3 module that you want other people to include in their projects.
 
-This project is opinionated. You get some extra stuff that I think all Swift packages should have.
+**STATUS: This template is ready to work in production code. The configurator should be improved.**
 
-## Your Module Will Have
+## Features
+Your new Swift 3 module will immediately have working, compilable code, and all these features:
+
 -   Ability to be used from Swift Package Manager, CocoaPods and Carthage
 -   Clean folder structure
 -   MIT license
@@ -13,13 +15,10 @@ This project is opinionated. You get some extra stuff that I think all Swift pac
 
 ## How to Use This
 
-Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program.
+Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
 
-It will then ask you some questions and create your project for you. You then add more interesting features to the module and example program.
+You then add all the interesting features you want your module to have.
 
 ## Contributing
 
 See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, ...) of how we made the template.
-
- - [x] Add preliminary recipe and template
- - [ ] Please help confirm this recipe works and help make it the best it can be
