@@ -10,18 +10,16 @@ end
 def replace_variables_in_files(substitutions)
   Dir.glob("**/*") do |file_name|
     next if File.directory?(file_name)
-    # See https://robots.thoughtbot.com/fight-back-utf-8-invalid-byte-sequences
-    text = File.read(file_name).encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
+    text = File.binread(file_name)
     substitutions.each do |old, new|
       text.gsub!(old, new)
     end
-    File.open(file_name, "w") { |file| file.puts text }
+    File.binwrite(file_name, text)
   end
 end
 
 def replace_variables_in_file_names(substitutions)
   Dir.foreach('.') do |file_name|
-puts "SAW #{file_name}"
     next if file_name == '.' or file_name == '..'
     new_file_name = file_name.clone
     substitutions.each do |old, new|
@@ -29,7 +27,6 @@ puts "SAW #{file_name}"
     end
     if new_file_name != file_name
       FileUtils.mv file_name, new_file_name
-puts "OLD #{file_name} NEW #{new_file_name}"
     end
     if File.directory?(new_file_name)
       Dir.chdir(new_file_name) do
