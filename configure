@@ -1,19 +1,14 @@
 #!/usr/bin/ruby
+require 'fileutils'
 
-substitutions = {
-  '__PROJECT_NAME__' => 'MyProject',
-  '__ORGANIZATION NAME__' => 'Awesome Org',
-  'com.AN.ORGANIZATION.IDENTIFIER' => 'com.awesome',
-  '__AUTHOR NAME__' => 'Mr McAwesome',
-  '__TODAYS_DATE__' => 'Jan 32, 2032',
-  '__TODAYS_YEAR__' => '2032',
-  '__GITHUB_USERNAME__' => 'awesome_octocat'
-}
+def prompt_for_variable(variable, default)
+  puts "Please enter a value for #{variable} (default: \"#{default}\")"
+  answer = gets.chomp
+  answer.length > 0 ? answer : default
+end
 
-`cp -r __PROJECT_NAME__ NEW`
-
-def replace_variables_in_files
-  Dir.glob("__PROJECT_NAME__/**/*") do |file_name|
+def replace_variables_in_files(substitutions)
+  Dir.glob("**/*") do |file_name|
     next if File.directory?(file_name)
     # See https://robots.thoughtbot.com/fight-back-utf-8-invalid-byte-sequences
     text = File.read(file_name).encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
@@ -24,18 +19,50 @@ def replace_variables_in_files
   end
 end
 
-## CD FIRST
-def replace_variables_in_file_names
+def replace_variables_in_file_names(substitutions)
   Dir.foreach('.') do |file_name|
+puts "SAW #{file_name}"
     next if file_name == '.' or file_name == '..'
+    new_file_name = file_name.clone
     substitutions.each do |old, new|
-# make this work
+      new_file_name.gsub!(old, new)
     end
-# and then recurse
+    if new_file_name != file_name
+      FileUtils.mv file_name, new_file_name
+puts "OLD #{file_name} NEW #{new_file_name}"
+    end
+    if File.directory?(new_file_name)
+      Dir.chdir(new_file_name) do
+        replace_variables_in_file_names(substitutions)
+      end
+    end
   end
 end
 
-# USE THOSE TWO FUNCTIONS
 
+##
+## MAIN
+##
 
-puts "DONE, your project is now ready to use at MyProject/"
+substitutions = {
+  '__PROJECT_NAME__' => 'MyProject',
+  '__ORGANIZATION NAME__' => 'Awesome Org',
+  'com.AN.ORGANIZATION.IDENTIFIER' => 'com.awesome',
+  '__AUTHOR NAME__' => 'Mr McAwesome',
+  '__TODAYS_DATE__' => 'Jan 32, 2032',
+  '__TODAYS_YEAR__' => '2032',
+  '__GITHUB_USERNAME__' => 'awesome_octocat'
+}
+substitutions.each do |variable, default|
+  substitutions[variable] = prompt_for_variable(variable, default)
+end
+
+Dir.chdir File.dirname(__FILE__)
+FileUtils.mkdir_p 'OUTPUT'
+FileUtils.cp_r '__PROJECT_NAME__', 'OUTPUT/'
+Dir.chdir 'OUTPUT/'
+
+replace_variables_in_files(substitutions)
+replace_variables_in_file_names(substitutions)
+
+puts "DONE, your project is now ready to use in the OUTPUT/ folder"
