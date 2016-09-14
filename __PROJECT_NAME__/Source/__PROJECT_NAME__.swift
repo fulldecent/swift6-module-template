@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class PROJECT: UIView {
+public class __PROJECT_NAME__: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -23,16 +23,16 @@ public class PROJECT: UIView {
     func setup() {
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        let bundle = NSBundle(forClass: self)
-        let image = UIImage(named: "wk", inBundle: bundle, compatibleWithTraitCollection: nil)
+        let bundle = Bundle(for: type(of: self))
+        let image = UIImage(named: "wk", in: bundle, compatibleWith: nil)
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(imageView)
         
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Width, relatedBy: .Equal, toItem: self, attribute: .Width, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Height, relatedBy: .Equal, toItem: self, attribute: .Height, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
+        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
         self.layoutIfNeeded()
     }
 }

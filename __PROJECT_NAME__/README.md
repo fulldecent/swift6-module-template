@@ -1,4 +1,4 @@
-# PROJECT
+# __PROJECT_NAME__
 
 [![CI Status](http://img.shields.io/travis/__GITHUB_USERNAME__/__PROJECT_NAME__.svg?style=flat)](https://travis-ci.org/__GITHUB_USERNAME__/__PROJECT_NAME__)
 [![Version](https://img.shields.io/cocoapods/v/__PROJECT_NAME__.svg?style=flat)](https://cocoapods.org/pods/__PROJECT_NAME__)

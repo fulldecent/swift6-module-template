@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D95E1BDC1D88D63300F94976"
-               BuildableName = "__PROJECT_NAME__.framework"
-               BlueprintName = "__PROJECT_NAME__"
-               ReferencedContainer = "container:__PROJECT_NAME__.xcodeproj">
+               BlueprintIdentifier = "D95E1C401D88E71A00F94976"
+               BuildableName = "iOS Example.app"
+               BlueprintName = "iOS Example"
+               ReferencedContainer = "container:iOS Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D95E1BE51D88D63400F94976"
-               BuildableName = "__PROJECT_NAME__Tests.xctest"
-               BlueprintName = "__PROJECT_NAME__Tests"
-               ReferencedContainer = "container:__PROJECT_NAME__.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D95E1BDC1D88D63300F94976"
-            BuildableName = "__PROJECT_NAME__.framework"
-            BlueprintName = "__PROJECT_NAME__"
-            ReferencedContainer = "container:__PROJECT_NAME__.xcodeproj">
+            BlueprintIdentifier = "D95E1C401D88E71A00F94976"
+            BuildableName = "iOS Example.app"
+            BlueprintName = "iOS Example"
+            ReferencedContainer = "container:iOS Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -61,15 +51,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D95E1BDC1D88D63300F94976"
-            BuildableName = "__PROJECT_NAME__.framework"
-            BlueprintName = "__PROJECT_NAME__"
-            ReferencedContainer = "container:__PROJECT_NAME__.xcodeproj">
+            BlueprintIdentifier = "D95E1C401D88E71A00F94976"
+            BuildableName = "iOS Example.app"
+            BlueprintName = "iOS Example"
+            ReferencedContainer = "container:iOS Example.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +70,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D95E1BDC1D88D63300F94976"
-            BuildableName = "__PROJECT_NAME__.framework"
-            BlueprintName = "__PROJECT_NAME__"
-            ReferencedContainer = "container:__PROJECT_NAME__.xcodeproj">
+            BlueprintIdentifier = "D95E1C401D88E71A00F94976"
+            BuildableName = "iOS Example.app"
+            BlueprintName = "iOS Example"
+            ReferencedContainer = "container:iOS Example.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
