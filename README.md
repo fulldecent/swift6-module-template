@@ -3,6 +3,8 @@ Use this template as a starting point for any Swift 3 module that you want other
 
 **STATUS: This template is ready to work in production code.**
 
+![Swift 3 Module directory layout](https://cloud.githubusercontent.com/assets/382183/18574753/43dda33e-7b9e-11e6-9e91-cf91c4a03ccd.png)
+
 ## Features
 Your new Swift 3 module will immediately have working, compilable code, and all these features:
 
