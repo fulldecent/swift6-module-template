@@ -263,6 +263,7 @@ Complete all these instructions on the same calendar day.
 
     cd ~/Desktop/__PROJECT_NAME__/
     curl 'https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore' -o .gitignore
+    echo '__PROJECT_NAME__.framework.zip' >> .gitignore
     curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/.travis.yml' -o .travis.yml
     curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/LICENSE' -o LICENSE
     curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/README.md' -o README.md
