@@ -185,7 +185,15 @@ Complete all these instructions on the same calendar day.
 
         4.  Click “Create"
 
-    5.  Use the directory layout structure like Alamofire
+    5.  Set up the module as shared (the same as how Alamofire does)
+
+        1.  Select Product -> Scheme -> Manage Schemes...
+
+        2.  Click "Shared" for the "iOS Example" scheme
+
+        3.  Click "Close"
+
+    6.  Use the directory layout structure like Alamofire
 
         1.  Use Terminal.app to rename folders
 
@@ -216,14 +224,14 @@ Complete all these instructions on the same calendar day.
 
               5.  Edit the "Info.plist File" to be "Source/Info.plist"
 
-    6.  Add source code with some functionality to the example
+    7.  Add source code with some functionality to the example
 
         1.  Use Terminal.app to insert some files into the project
 
                 cd ~/Desktop/__PROJECT_NAME__/iOS\ Example/
                 curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/iOS\ Example/Source/Base.lproj/Main.storyboard' -o Source/Base.lproj/Main.storyboard
 
-    7.  Define packaging files for your module
+    8.  Define packaging files for your module
 
         1.  Use Terminal.app to insert a templated podspec (for CocoaPods consumers)
 
