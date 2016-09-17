@@ -269,3 +269,6 @@ Complete all these instructions on the same calendar day.
     curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/README.md' -o README.md
     curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CHANGELOG.md' -o CHANGELOG.md
     curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CONTRIBUTING.md' -o CONTRIBUTING.md
+    echo '3.0' > .swift-version
+    # Reference https://github.com/Alamofire/Alamofire/blob/master/.swift-version
+    # Reference https://github.com/CocoaPods/CocoaPods/pull/5841
