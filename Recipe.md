@@ -272,3 +272,4 @@ Complete all these instructions on the same calendar day.
     echo '3.0' > .swift-version
     # Reference https://github.com/Alamofire/Alamofire/blob/master/.swift-version
     # Reference https://github.com/CocoaPods/CocoaPods/pull/5841
+    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb

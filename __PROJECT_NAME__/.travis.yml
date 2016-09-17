@@ -30,3 +30,5 @@ script:
   - if [ $POD_LINT == "YES" ]; then
       pod lib lint;
     fi
+
+  - CheckCocoaPodsQualityIndexes.rb __PROJECT_NAME__
