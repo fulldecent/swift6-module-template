@@ -1,6 +1,6 @@
 # WARNING
 
-Thank you for using swift3-module-template. Before you release your awesome project to the world, complete the following steps.
+Thank you for using __PROJECT_NAME__. Before you release your awesome project to the world, complete the following steps.
 
 THIS LIST IS EASY, CHECK IT OFF ONE-BY-ONE BABY!
 
