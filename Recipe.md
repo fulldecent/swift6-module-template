@@ -269,16 +269,16 @@ Complete all these instructions on the same calendar day.
 
 6.  Use Terminal.app to add additional files to the project
 
-    cd ~/Desktop/__PROJECT_NAME__/
-    curl 'https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore' -o .gitignore
-    echo '__PROJECT_NAME__.framework.zip' >> .gitignore
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/.travis.yml' -o .travis.yml
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/LICENSE' -o LICENSE
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/README.md' -o README.md
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CHANGELOG.md' -o CHANGELOG.md
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CONTRIBUTING.md' -o CONTRIBUTING.md
-    echo '3.0' > .swift-version
-    # Reference https://github.com/Alamofire/Alamofire/blob/master/.swift-version
-    # Reference https://github.com/CocoaPods/CocoaPods/pull/5841
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb
-    curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Project.swift' -o Project.swift
+        cd ~/Desktop/__PROJECT_NAME__/
+        curl 'https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore' -o .gitignore
+        echo '__PROJECT_NAME__.framework.zip' >> .gitignore
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/.travis.yml' -o .travis.yml
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/LICENSE' -o LICENSE
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/README.md' -o README.md
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CHANGELOG.md' -o CHANGELOG.md
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CONTRIBUTING.md' -o CONTRIBUTING.md
+        echo '3.0' > .swift-version
+        # Reference https://github.com/Alamofire/Alamofire/blob/master/.swift-version
+        # Reference https://github.com/CocoaPods/CocoaPods/pull/5841
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb
+        curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Project.swift' -o Project.swift
