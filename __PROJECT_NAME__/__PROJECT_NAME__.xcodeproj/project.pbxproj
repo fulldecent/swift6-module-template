@@ -97,8 +97,7 @@
 			children = (
 				D95E1BF81D88E01300F94976 /* wk.png */,
 			);
-			name = Resources;
-			path = Tests;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
