@@ -1,6 +1,6 @@
 # Recipe
 
-This recipe documents exactly how we created the template. Please follow along and you should create a template that is identical to the one we provided. If this recipe is not perfect (or your result different from the template) then please submit an issue or pull request.
+This recipe documents exactly how we created the template. Please follow along and you should create a template that is identical to the one we provided. If this recipe is not perfect (or your result is different from our template) then please submit an issue or pull request.
 
 
 ## Ingredients
