@@ -15,11 +15,15 @@ Your new Swift 3 module will immediately have working, compilable code, and all 
 -   Turnkey access to Travis CI
 -   Semantic versioning and a CHANGELOG
 
-## How to Use This
+## How to use this
 
 Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
 
 You then add all the interesting features you want your module to have.
+
+### Using CocoaPods to manage dependencies for your example app
+
+You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift3-module-template/issues/8.
 
 ## Contributing
 
