@@ -105,7 +105,7 @@ Complete all these instructions on the same calendar day.
 
             8.  Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/Tests
 
-        3.  Fix the Info.plist file configuration (this is a bug/workaround with Xcode, no radar submitted yet)
+        3.  Fix the Info.plist file configuration (Xcode makes renaming folders a pain)
 
             1.  Click `__PROJECT_NAME__` on the left (the blue icon)
 
@@ -216,7 +216,7 @@ Complete all these instructions on the same calendar day.
 
             5.   Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/iOS Example/Source
 
-          3.  Fix the Info.plist file configuration (this is a bug/workaround with Xcode, no radar submitted yet)
+          3.  Fix the Info.plist file configuration (Xcode makes renaming folders a pain)
 
               1.  Click "iOS Example" on the left (the blue icon)
 
