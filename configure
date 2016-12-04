@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 require 'fileutils'
+require 'date'
 
 def prompt_for_variable(variable, default)
   puts "Please enter a value for #{variable} (default: \"#{default}\")"
@@ -52,8 +53,8 @@ substitutions = {
   '__ORGANIZATION NAME__' => 'Awesome Org',
   'com.AN.ORGANIZATION.IDENTIFIER' => 'com.awesome',
   '__AUTHOR NAME__' => 'Mr McAwesome',
-  '__TODAYS_DATE__' => 'Jan 32, 2032',
-  '__TODAYS_YEAR__' => '2032',
+  '__TODAYS_DATE__' => Date.today.strftime('%b %-d, %Y'),
+  '__TODAYS_YEAR__' => Date.today.year,
   '__GITHUB_USERNAME__' => 'awesome_octocat'
 }
 substitutions.each do |variable, default|
