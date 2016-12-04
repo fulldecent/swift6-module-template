@@ -77,7 +77,7 @@ To integrate __PROJECT_NAME__ into your Xcode project using Carthage, specify it
 github "__GITHUB_USERNAME__/__PROJECT_NAME__" ~> 0.1
 ```
 
-Run `carthage update` to build the framework and drag the built `__PROJECT_NAME__.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `__PROJECT_NAME__`.framework into your Xcode project.
 
 
 ## Author
