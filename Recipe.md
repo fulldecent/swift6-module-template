@@ -34,7 +34,7 @@ Some variables have spaces in them. That is intentional because it causes Xcode 
 
 Complete all these instructions on the same calendar day.
 
-1.  Open Xcode Version 8.0 (8A218a) *(this is the latest publicly released or Gold Master version)*
+1.  Open Xcode Version 8.1 (8B62) *(this is the latest publicly released or Gold Master version)*
 
 2.  Create a project for your module
 
@@ -91,9 +91,9 @@ Complete all these instructions on the same calendar day.
 
             1.  Open the file `__PROJECT_NAME__`.xcodeproj in Xcode
 
-            2.  Enable to Project navigator on the left and the File inspector on the right
+            2.  Enable Project navigator on the left and the File inspector on the right
 
-            3.  Use the Project navigator to select the `__PROJECT_NAME__` folder
+            3.  Use the Project navigator to select the `__PROJECT_NAME__` folder (the yellow icon)
 
             4.  Use the File inspector to change the name to “Source"
 
@@ -103,17 +103,15 @@ Complete all these instructions on the same calendar day.
 
             7.  Use the File inspector to change the name to “Tests"
 
-            8.  Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/tests
-
-            9.  Use the Project navigator to select the `__PROJECT_NAME__` project (the blue Xcode icon, not the folder icon)
+            8.  Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/Tests
 
         3.  Fix the Info.plist file configuration (this is a bug/workaround with Xcode, no radar submitted yet)
 
             1.  Click `__PROJECT_NAME__` on the left (the blue icon)
 
-            2.  Click the target `__PROJECT_NAME__` in the middle
+            2.  Click the target `__PROJECT_NAME__` in the middle (the brown icon)
 
-            3.  Click Build Settings on the top of the middle
+            3.  Click "Build Settings" on the top of the middle
 
             4.  Enter "Info.plist" in the search box
 
@@ -129,21 +127,27 @@ Complete all these instructions on the same calendar day.
 
         2.  Use Xcode to add these files to the project
 
-            1.  Select File -> New -> Group and set the name to "Resources"
+            1. Add `__PROJECT_NAME__`.swift to the Source folder
 
-            2. Order the Source folder to above the Resources folder
+                1. Select the Source folder in the Project navigator
 
-            3. Drag the wk.png file in the Resources folder from Finder into the Resources folder in Xcode
+                2. Select File -> "Add Files..."
 
-                1.  Ensure “Copy items if needed” is not selected
+                3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__`.swift and click "Add"
 
-                2.  Ensure Add to targets only selects `__PROJECT_NAME__`
+            2. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
 
-            4. Drag the `__PROJECT_NAME__.swift` file in the Source folder from Finder into the Source folder in Xcode (put it above other items in the group)
+            3. Select File -> New -> Group and set the name to "Resources"
 
-                1.  Ensure “Copy items if needed” is not selected
+            4. Order the Source folder to above the Resources folder
 
-                2.  Ensure Add to targets only selects `__PROJECT_NAME__`
+            5. Add wk.png to the Resources folder
+
+                1. Select the Resources folder in the Project navigator
+
+                2. Select File -> "Add Files..."
+
+                3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Resources/, select wk.png and click "Add"
 
 3.  Create a project for your iOS Example project
 
@@ -159,15 +163,15 @@ Complete all these instructions on the same calendar day.
 
     3.  Set the project options
 
-        1.  Set project name to "iOS Example"
+        1.  Set Product Name to "iOS Example"
 
-        2.  Set organization name to `__ORGANIZATION NAME__`
+        2.  Set Organization Name to `__ORGANIZATION NAME__`
 
-        3.  Set organization identifier to `com.AN.ORGANIZATION.IDENTIFIER`
+        3.  Set Organization Identifier to `com.AN.ORGANIZATION.IDENTIFIER`
 
-        4.  Set language to "Swift"
+        4.  Set Language to "Swift"
 
-        5.  Set devices to “Universal"
+        5.  Set Devices to “Universal"
 
         6.  Ensure "Include Unit Tests" is not selected
 
@@ -210,7 +214,7 @@ Complete all these instructions on the same calendar day.
 
             4.   Use the File inspector to change the name to “Source"
 
-            5.   Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/Source
+            5.   Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/iOS Example/Source
 
           3.  Fix the Info.plist file configuration (this is a bug/workaround with Xcode, no radar submitted yet)
 
@@ -247,7 +251,7 @@ Complete all these instructions on the same calendar day.
 
     1.  Select File -> New -> Workspace
 
-    2.  Select the `__PROJECT_NAME__` on the desktop and click save
+    2.  Select `__PROJECT_NAME__` on the desktop, enter the name `__PROJECT_NAME__` and click save
 
     3.  Use Finder and drag `__PROJECT_NAME__`.xcodeproj into the workspace in Xcode
 
@@ -257,13 +261,13 @@ Complete all these instructions on the same calendar day.
 
     6.  Click Build Phases in the middle
 
-    7.  Under Link Binaries With Libraries click the plus icon, select the `__PROJECT_NAME__` framework, and then click "Add"
+    7.  Under Link Binaries With Libraries click the plus icon, select `__PROJECT_NAME__`.framework, and then click "Add"
 
 5.  Remove identifying parts of your project
 
     1.  Use Atom text editor to find and replace all occurrences of these strings (NEED A MORE PORTABLE INSTRUCTION FOR THIS)
 
-        1.  Replace occurrences of "Created by XXX on YYY" with "Created by `__AUTHOR NAME__` on `__TODAYS_DATE__`"
+        1.  Replace occurrences of "Created by XXX on YYY." with "Created by `__AUTHOR NAME__` on `__TODAYS_DATE__`."
 
         2.  Replace occurrences of "Copyright © 2016" with "Copyright © `__TODAYS_YEAR__`"
 
@@ -282,3 +286,14 @@ Complete all these instructions on the same calendar day.
         # Reference https://github.com/CocoaPods/CocoaPods/pull/5841
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Project.swift' -o Project.swift
+
+
+## Taste testing
+
+1.  Open `__PROJECT_NAME__`.xcworkspace
+
+2.  Use the scheme navigator to select iOS Example and the latest iPhone version
+
+3.  Select Product -> Run
+
+You should see a big white rook. That means it worked!
