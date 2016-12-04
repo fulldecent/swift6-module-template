@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fulldecent/swift3-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift3-module-template)
+
 # Swift 3 Module Template
 Use this template as a starting point for any Swift 3 module that you want other people to include in their projects.
 
