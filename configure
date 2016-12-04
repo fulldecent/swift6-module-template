@@ -3,8 +3,9 @@ require 'fileutils'
 require 'date'
 
 def prompt_for_variable(variable, default)
+  return ARGV[0] if variable == '__PROJECT_NAME__' && ARGV.count == 1
   puts "Please enter a value for #{variable} (default: \"#{default}\")"
-  answer = gets.chomp
+  answer = STDIN.gets.chomp
   answer.length > 0 ? answer : default
 end
 
