@@ -55,7 +55,7 @@ substitutions = {
   'com.AN.ORGANIZATION.IDENTIFIER' => 'com.awesome',
   '__AUTHOR NAME__' => 'Mr McAwesome',
   '__TODAYS_DATE__' => Date.today.strftime('%b %-d, %Y'),
-  '__TODAYS_YEAR__' => Date.today.year,
+  '__TODAYS_YEAR__' => "#{Date.today.year}",
   '__GITHUB_USERNAME__' => 'awesome_octocat'
 }
 substitutions.each do |variable, default|
