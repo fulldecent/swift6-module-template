@@ -2,11 +2,11 @@
 
 All contributors are welcome. Please use issues and pull requests to contribute to the project. And update [CHANGELOG.md](CHANGELOG.md) when committing.
 
-## Making a Change
+## Making a change
 
 When you commit a change, please add a note to [CHANGELOG.md](CHANGELOG.md).
 
-## Release Process
+## Release process
 
 1. Confirm the build is [passing in travis](https://travis-ci.org/__GITHUB_USERNAME__/__PROJECT_NAME__)
    1. This automatically checks the Podfile is building
