@@ -10,7 +10,7 @@ def prompt_for_variable(variable, default)
 end
 
 def replace_variables_in_files(substitutions)
-  Dir.glob("**/*") do |file_name|
+  Dir.glob("**/*",File::FNM_DOTMATCH) do |file_name|
     next if File.directory?(file_name)
 
     text = ''
