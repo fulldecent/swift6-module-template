@@ -61,6 +61,8 @@ substitutions = {
 substitutions.each do |variable, default|
   substitutions[variable] = prompt_for_variable(variable, default)
 end
+substitutions['com.AN.ORGANIZATION.IDENTIFIER.__PROJECT_NAME__'] = 
+substitutions['com.AN.ORGANIZATION.IDENTIFIER'] + substitutions['__PROJECT_NAME__']
 
 Dir.chdir File.dirname(__FILE__)
 FileUtils.mkdir_p 'OUTPUT'
