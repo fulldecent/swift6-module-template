@@ -269,7 +269,7 @@ Complete all these instructions on the same calendar day.
 
         1.  Replace occurrences of "Created by XXX on YYY." with "Created by `__AUTHOR NAME__` on `__TODAYS_DATE__`."
 
-        2.  Replace occurrences of "Copyright © 2016" with "Copyright © `__TODAYS_YEAR__`"
+        2.  Replace occurrences of "Copyright © 2017" with "Copyright © `__TODAYS_YEAR__`"
 
 6.  Use Terminal.app to add additional files to the project
 
