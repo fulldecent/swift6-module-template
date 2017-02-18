@@ -233,7 +233,7 @@ Complete all these instructions on the same calendar day.
         1.  Use Terminal.app to insert some files into the project
 
                 cd ~/Desktop/__PROJECT_NAME__/iOS\ Example/
-                curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/iOS\ Example/Source/Base.lproj/Main.storyboard' -o Source/Base.lproj/Main.storyboard
+                curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/iOS%20Example/Source/Base.lproj/Main.storyboard' -o Source/Base.lproj/Main.storyboard
 
     8.  Define packaging files for your module
 
