@@ -296,4 +296,4 @@ Complete all these instructions on the same calendar day.
 
 3.  Select Product -> Run
 
-You should see a big white rook. That means it worked!
+You should see a big white king. That means it worked!
