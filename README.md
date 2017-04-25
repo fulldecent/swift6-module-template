@@ -31,20 +31,24 @@ You then add all the interesting features you want your module to have.
 
 You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift3-module-template/issues/8.
 
-### Setting up pre-defined answers
+### Setting up predefined answers
 
-You can set up pre-defined answers (e.&nbsp;g. for scripting) in the following ways:
+You can predefine answers to all configuration questions (e.g. for scripting).
 
-| Template variable | Ways to pre-define the variable | Example |
-| ----------------- | ------------------------------- | ------- |
-| **`__PROJECT_NAME__`** | To pre-define an answer, **pass your project name** to the `./configure` program as a single command-line parameter.<br/>Alternatively, you can use the **`SMT_PROJECT_NAME`** environment variable. | `./configure MyFantasticProject` |
-| **`__ORGANIZATION NAME__`** | To pre-define an answer, define an environment variable named **`SMT_ORGANIZATION_NAME`**. | `export SMT_ORGANIZATION_NAME='Awesome Org'` |
-| **`com.AN.ORGANIZATION.IDENTIFIER`** | To pre-define an answer, define an environment variable named **`SMT_COM_AN_ORGANIZATION_IDENTIFIER`**. | `export SMT_COM_AN_ORGANIZATION_IDENTIFIER='com.awesome'` |
-| **`__AUTHOR NAME__`** | To pre-define an answer, define an environment variable named **`SMT_AUTHOR_NAME`**. | `export SMT_AUTHOR_NAME='Mr McAwesome'` |
-| **`__TODAYS_DATE__`** | To pre-define an answer, define an environment variable named **`SMT_TODAYS_DATE`**. | `export SMT_TODAYS_DATE='her birthday'` |
-| **`__TODAYS_DATE__`** (date format) | As an alternative to the `SMT_TODAYS_DATE` environment variable, you can use **`SMT_DATE_FORMAT_STRING`** to pre-define a date format. The program will still ask you for today’s date; however, it will use the format provided in this variable. | `export SMT_DATE_FORMAT_STRING='%F'` |
-| **`__TODAYS_YEAR__`** | To pre-define an answer, define an environment variable named **`SMT_TODAYS_YEAR`**. | `export SMT_TODAYS_YEAR='2077'` |
-| **`__GITHUB_USERNAME__`** | To pre-define an answer, define an environment variable named **`SMT_GITHUB_USERNAME`**. | `export SMT_GITHUB_USERNAME='awesome_octocat'` |
+| Template variable                | Environment variable                     |
+| -------------------------------- | ---------------------------------------- |
+| `__PROJECT_NAME__`               | `SMT_PROJECT_NAME`                       |
+| `__ORGANIZATION NAME__`          | `SMT_ORGANIZATION_NAME`                  |
+| `com.AN.ORGANIZATION.IDENTIFIER` | `SMT_COM_AN_ORGANIZATION_IDENTIFIER`     |
+| `__AUTHOR NAME__`                | `SMT_AUTHOR_NAME`                        |
+| `__TODAYS_DATE__`                | `SMT_TODAYS_DATE`                        |
+| `__TODAYS_DATE__` (date format)  | `SMT_DATE_FORMAT_STRING` Note: this will ask you for today’s date but it will use this format in the template. |
+| `__TODAYS_YEAR__`                | `SMT_TODAYS_YEAR`                        |
+| `__GITHUB_USERNAME__`            | `SMT_GITHUB_USERNAME`                    |
+
+For example, you may use: `export SMT_ORGANIZATION_NAME='Awesome Org'`.
+
+Also note; the project name may be specified as a single command line argument like `./configure MyFantasticProject`.
 
 If an answer is pre-defined, the `./configure` program will use it; otherwise, it will ask for an answer interactively. If neither is given, it will fall back to the built-in default values.
 
