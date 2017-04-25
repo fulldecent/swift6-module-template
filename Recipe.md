@@ -265,11 +265,14 @@ Complete all these instructions on the same calendar day.
 
 5.  Remove identifying parts of your project
 
-    1.  Use Atom text editor to find and replace all occurrences of these strings (NEED A MORE PORTABLE INSTRUCTION FOR THIS)
+    1.  Use Terminal.app to find and replace all occurrences of hard-coded strings with template variables
 
-        1.  Replace occurrences of "Created by XXX on YYY." with "Created by `__AUTHOR NAME__` on `__TODAYS_DATE__`."
+            find -E ~/Desktop/__PROJECT_NAME__ \
+                -regex '.*\.(h|swift)' -exec sed -i '' -E -e '
+                    s-(// +Created by ).*( on ).*\.-\1__AUTHOR NAME__\2__TODAYS_DATE__.-
+                    s-(// +Copyright © ).*-\1__TODAYS_YEAR__ __ORGANIZATION NAME__. All rights reserved.-' \
+                '{}' \;
 
-        2.  Replace occurrences of "Copyright © 2017" with "Copyright © `__TODAYS_YEAR__`"
 
 6.  Use Terminal.app to add additional files to the project
 
