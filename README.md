@@ -19,6 +19,8 @@ Your new Swift 3 module will immediately have working, compilable code, and all 
 -   Turnkey access to Travis CI
 -   Semantic versioning and a CHANGELOG
 
+We make the assumption you are using an Xcode project to manage your code.
+
 ## How to use this
 
 Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
