@@ -34,7 +34,7 @@ Some variables have spaces in them. That is intentional because it causes Xcode 
 
 Complete all these instructions on the same calendar day.
 
-1.  Open Xcode Version 8.1 (8B62) *(this is the latest publicly released or Gold Master version)*
+1.  Open Xcode Version 8.3.2 (8E2002) *(this is the latest publicly released or Gold Master version)*
 
 2.  Create a project for your module
 
@@ -109,7 +109,7 @@ Complete all these instructions on the same calendar day.
 
             1.  Click `__PROJECT_NAME__` on the left (the blue icon)
 
-            2.  Click the target `__PROJECT_NAME__` in the middle (the brown icon)
+            2.  Click the target `__PROJECT_NAME__` in the middle (the brown toolbox icon)
 
             3.  Click "Build Settings" on the top of the middle
 
@@ -249,19 +249,21 @@ Complete all these instructions on the same calendar day.
 
 4.  Use Xcode to manually to make the iOS Example use the module
 
-    1.  Select File -> New -> Workspace
+    1. Close all projects and workspaces currently open in Xcode
 
-    2.  Select `__PROJECT_NAME__` on the desktop, enter the name `__PROJECT_NAME__` and click save
+    2.  Select File -> New -> Workspace
 
-    3.  Use Finder and drag `__PROJECT_NAME__`.xcodeproj into the workspace in Xcode
+    3.  Select `__PROJECT_NAME__` on the desktop, enter the name `__PROJECT_NAME__` and click save
 
-    4.  Use Finder and drag iOS Example.xcodeproj into the workspace in Xcode (make this below the other one, be sure you do NOT make it subordinated)
+    4.  Use Finder and drag `__PROJECT_NAME__`.xcodeproj into the workspace in Xcode
 
-    5.  Click iOS Example on the left
+    5.  Use Finder and drag iOS Example.xcodeproj into the workspace in Xcode (make this below the other one, be sure you do NOT make it subordinated)
 
-    6.  Click Build Phases in the middle
+    6.  Click iOS Example on the left
 
-    7.  Under Link Binaries With Libraries click the plus icon, select `__PROJECT_NAME__`.framework, and then click "Add"
+    7.  Click Build Phases in the middle
+
+    8.  Under Link Binaries With Libraries click the plus icon, select `__PROJECT_NAME__`.framework, and then click "Add"
 
 5.  Remove identifying parts of your project
 
