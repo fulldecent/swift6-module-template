@@ -274,6 +274,12 @@ Complete all these instructions on the same calendar day.
                 '{}' \;
 
 
+    2.  Use Terminal.app to remove all references to development team IDs
+
+            find ~/Desktop/__PROJECT_NAME__ -name project.pbxproj \
+                -exec sed -i '' -E -e '/DevelopmentTeam = /d
+                    s/(DEVELOPMENT_TEAM = )[^;]+/\1""/' '{}' \;
+
 6.  Use Terminal.app to add additional files to the project
 
         cd ~/Desktop/__PROJECT_NAME__/
