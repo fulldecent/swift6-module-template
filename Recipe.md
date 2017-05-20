@@ -117,6 +117,14 @@ Complete all these instructions on the same calendar day.
 
             5.  Edit the "Info.plist File" to be "Source/Info.plist"
 
+            6.  Click the target `__PROJECT_NAME__Tests` in the middle (the grey Lego block icon)
+
+            7.  Click "Build Settings" on the top of the middle
+
+            8.  Enter "Info.plist" in the search box
+
+            9.  Edit the "Info.plist File" to be "Tests/Info.plist"
+
     7.  Add source code with some functionality to the module
 
         1.  Use Terminal.app to insert some files into the project
