@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.authors = { 'PROJECT_OWNER' => 'USER_EMAIL' }
   s.source = { :git => 'https://github.com/__GITHUB_USERNAME__/__PROJECT_NAME__.git', :tag => s.version }
   s.ios.deployment_target = '8.0'
-  s.source_files = 'Source/*.swift'
+  s.source_files = 'Source/*.{h,m,swift}'
   s.resource_bundles = {
     '__PROJECT_NAME__' => ['Resources/**/*.{png}']
   }
