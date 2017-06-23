@@ -132,6 +132,8 @@ Complete all these instructions on the same calendar day.
                 cd ~/Desktop/__PROJECT_NAME__/
                 curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Resources/wk.png' -o Resources/wk.png
                 curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__.swift' -o Source/__PROJECT_NAME__.swift
+                curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__Label.h' -o Source/__PROJECT_NAME__.h
+                curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__Label.m' -o Source/__PROJECT_NAME__Label.m
 
         2.  Use Xcode to add these files to the project
 
@@ -143,13 +145,33 @@ Complete all these instructions on the same calendar day.
 
                 3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__`.swift and click "Add"
 
-            2. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
+                4. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__Label`.h and click "Add"
 
-            3. Select File -> New -> Group and set the name to "Resources"
+                5. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__Label`.m and click "Add"
 
-            4. Order the Source folder to above the Resources folder
+            2. Change `__PROJECT_NAME__Label`.h membership to "Public"
 
-            5. Add wk.png to the Resources folder
+                1. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
+
+                2. Highlight `__PROJECT_NAME__Label`.h in Project Navigator 
+
+                3. In the right panel (File Inspector), Target Membership section, change membership to "Public"
+
+            3. Add `__PROJECT_NAME__Label`.h to `__PROJECT_NAME__`.h file
+
+                1. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
+
+                2. Highlight `__PROJECT_NAME__`.h in Project Navigator 
+
+                3. Add sring "#import <__PROJECT_NAME__/__PROJECT_NAME__Label.h>" to the end of file
+
+            4. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
+
+            5. Select File -> New -> Group and set the name to "Resources"
+
+            6. Order the Source folder to above the Resources folder
+
+            7. Add wk.png to the Resources folder
 
                 1. Select the Resources folder in the Project navigator
 
