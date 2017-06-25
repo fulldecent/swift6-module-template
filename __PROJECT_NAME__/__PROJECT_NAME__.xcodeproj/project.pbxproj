@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		664AE2251EFD138500F89DE2 /* __PROJECT_NAME__Label.h in Headers */ = {isa = PBXBuildFile; fileRef = 664AE2231EFD138500F89DE2 /* __PROJECT_NAME__Label.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		664AE2261EFD138500F89DE2 /* __PROJECT_NAME__Label.m in Sources */ = {isa = PBXBuildFile; fileRef = 664AE2241EFD138500F89DE2 /* __PROJECT_NAME__Label.m */; };
 		D93F1CA21EAEDB6E009A7474 /* __PROJECT_NAME__.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D93F1C981EAEDB6E009A7474 /* __PROJECT_NAME__.framework */; };
 		D93F1CA71EAEDB6E009A7474 /* __PROJECT_NAME__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93F1CA61EAEDB6E009A7474 /* __PROJECT_NAME__Tests.swift */; };
 		D93F1CA91EAEDB6E009A7474 /* __PROJECT_NAME__.h in Headers */ = {isa = PBXBuildFile; fileRef = D93F1C9B1EAEDB6E009A7474 /* __PROJECT_NAME__.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		664AE2231EFD138500F89DE2 /* __PROJECT_NAME__Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = __PROJECT_NAME__Label.h; sourceTree = "<group>"; };
+		664AE2241EFD138500F89DE2 /* __PROJECT_NAME__Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = __PROJECT_NAME__Label.m; sourceTree = "<group>"; };
 		D93F1C981EAEDB6E009A7474 /* __PROJECT_NAME__.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = __PROJECT_NAME__.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93F1C9B1EAEDB6E009A7474 /* __PROJECT_NAME__.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = __PROJECT_NAME__.h; sourceTree = "<group>"; };
 		D93F1C9C1EAEDB6E009A7474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 			children = (
 				D93F1CB21EAEDCC9009A7474 /* __PROJECT_NAME__.swift */,
 				D93F1C9B1EAEDB6E009A7474 /* __PROJECT_NAME__.h */,
+				664AE2231EFD138500F89DE2 /* __PROJECT_NAME__Label.h */,
+				664AE2241EFD138500F89DE2 /* __PROJECT_NAME__Label.m */,
 				D93F1C9C1EAEDB6E009A7474 /* Info.plist */,
 			);
 			path = Source;
@@ -107,6 +113,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				664AE2251EFD138500F89DE2 /* __PROJECT_NAME__Label.h in Headers */,
 				D93F1CA91EAEDB6E009A7474 /* __PROJECT_NAME__.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93F1CB31EAEDCC9009A7474 /* __PROJECT_NAME__.swift in Sources */,
+				664AE2261EFD138500F89DE2 /* __PROJECT_NAME__Label.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
