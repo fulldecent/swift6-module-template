@@ -3,8 +3,6 @@
 # Swift 3 Module Template
 Use this template as a starting point for any Swift 3 module that you want other people to include in their projects.
 
-**For Objective-C projects, see [objective-c-module-template](https://github.com/fulldecent/objective-c-module-template).**
-
 **STATUS: This template is ready to work in production code.**
 
 ![Swift 3 Module directory layout](https://cloud.githubusercontent.com/assets/382183/18574753/43dda33e-7b9e-11e6-9e91-cf91c4a03ccd.png)
