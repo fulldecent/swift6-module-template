@@ -23,6 +23,8 @@ We make the assumption you are using an Xcode project to manage your code.
 
 Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
 
+Or if you have CocoaPods installed, you can alternatively start a new project using this template with: `pod lib create --verbose --template-url='https://github.com/fulldecent/swift3-module-template.git' MyNewPodsName`
+
 You then add all the interesting features you want your module to have.
 
 ### Using CocoaPods to manage dependencies for your example app
