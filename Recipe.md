@@ -34,7 +34,7 @@ Some variables have spaces in them. That is intentional because it causes Xcode 
 
 Complete all these instructions on the same calendar day.
 
-1.  Open Xcode Version 8.3.2 (8E2002) *(this is the latest publicly released or Gold Master version)*
+1.  Open Xcode Version 9.0 (9A235) *(this is the latest publicly released or Gold Master version)*
 
 2.  Create a project for your module
 
@@ -50,7 +50,7 @@ Complete all these instructions on the same calendar day.
 
     3.  Set the project options
 
-        1.  Set project name to `__PROJECT_NAME__`
+        1.  Set product name to `__PROJECT_NAME__`
 
         2.  Set organization name to `__ORGANIZATION NAME__`
 
@@ -80,14 +80,7 @@ Complete all these instructions on the same calendar day.
 
     6.  Use the directory layout like Alamofire
 
-        1.  Use Terminal.app to rename folders
-
-                cd ~/Desktop/__PROJECT_NAME__/
-                mv __PROJECT_NAME__/ Source
-                mv __PROJECT_NAME__Tests/ Tests
-                mkdir Resources
-
-        2.  Use Xcode to update the name and location of these folders
+        1.  Use Xcode to update the name and location of these folders
 
             1.  Open the file `__PROJECT_NAME__`.xcodeproj in Xcode
 
@@ -97,13 +90,17 @@ Complete all these instructions on the same calendar day.
 
             4.  Use the File inspector to change the name to “Source"
 
-            5.  Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/Source
-
             6.  Use the Project navigator to select the `__PROJECT_NAME__Tests` folder
 
             7.  Use the File inspector to change the name to “Tests"
 
-            8.  Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/Tests
+        2.  Use Xcode to create a resources folder
+
+            1.  Click `__PROJECT_NAME__` on the left (the blue icon)
+
+            2.  Select File -> New -> Group and set the name to "Resources"
+
+            3. Order the Source folder to above the Resources folder
 
         3.  Fix the Info.plist file configuration (Xcode makes renaming folders a pain)
 
@@ -132,52 +129,51 @@ Complete all these instructions on the same calendar day.
                 cd ~/Desktop/__PROJECT_NAME__/
                 curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Resources/wk.png' -o Resources/wk.png
                 curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__.swift' -o Source/__PROJECT_NAME__.swift
-                curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__Label.h' -o Source/__PROJECT_NAME__.h
+                curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__Label.h' -o Source/__PROJECT_NAME__Label.h
                 curl 'https://raw.githubusercontent.com/fulldecent/swift-package/master/__PROJECT_NAME__/Source/__PROJECT_NAME__Label.m' -o Source/__PROJECT_NAME__Label.m
 
         2.  Use Xcode to add these files to the project
 
-            1. Add `__PROJECT_NAME__`.swift to the Source folder
+            1. Add source code to the Source folder
 
                 1. Select the Source folder in the Project navigator
 
-                2. Select File -> "Add Files..."
+                2. Select File -> "Add Files To..."
 
-                3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__`.swift and click "Add"
+                3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/
 
-                4. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__Label`.h and click "Add"
+                4. Select `__PROJECT_NAME__`.swift, `__PROJECT_NAME__Label`.h, and `__PROJECT_NAME__Label`.m
 
-                5. Navigate to ~/Desktop/`__PROJECT_NAME__`/Source/, select `__PROJECT_NAME__Label`.m and click "Add"
+                5. Click "Add"
 
-            2. Change `__PROJECT_NAME__Label`.h membership to "Public"
-
-                1. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
-
-                2. Highlight `__PROJECT_NAME__Label`.h in Project Navigator 
-
-                3. In the right panel (File Inspector), Target Membership section, change membership to "Public"
-
-            3. Add `__PROJECT_NAME__Label`.h to `__PROJECT_NAME__`.h file
-
-                1. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
-
-                2. Highlight `__PROJECT_NAME__`.h in Project Navigator 
-
-                3. Add sring "#import <__PROJECT_NAME__/__PROJECT_NAME__Label.h>" to the end of file
-
-            4. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
-
-            5. Select File -> New -> Group and set the name to "Resources"
-
-            6. Order the Source folder to above the Resources folder
-
-            7. Add wk.png to the Resources folder
+            2. Add resource to the Resources folder
 
                 1. Select the Resources folder in the Project navigator
 
-                2. Select File -> "Add Files..."
+                2. Select File -> "Add Files To..."
 
-                3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Resources/, select wk.png and click "Add"
+                3. Navigate to ~/Desktop/`__PROJECT_NAME__`/Resources/
+
+                4. Select "wk.png"
+
+                5. Click "Add"
+
+
+            3. Change `__PROJECT_NAME__Label`.h membership to "Public"
+
+                1. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
+
+                2. Highlight `__PROJECT_NAME__Label`.h in Project Navigator
+
+                3. In the right panel (File Inspector), Target Membership section, change membership to "Public"
+
+            4. Add `__PROJECT_NAME__Label`.h to `__PROJECT_NAME__`.h file
+
+                1. Select the `__PROJECT_NAME__` project (blue icon) in the Project Navigator
+
+                2. Highlight `__PROJECT_NAME__`.h in Project Navigator
+
+                3. Add string "#import <__PROJECT_NAME__/__PROJECT_NAME__Label.h>" to the end of file
 
 3.  Create a project for your iOS Example project
 
@@ -201,13 +197,11 @@ Complete all these instructions on the same calendar day.
 
         4.  Set Language to "Swift"
 
-        5.  Set Devices to “Universal"
+        5.  Ensure "Include Unit Tests" is not selected
 
-        6.  Ensure "Include Unit Tests" is not selected
+        6.  Ensure "Include UI Tests" is not selected
 
-        7.  Ensure "Include UI Tests" is not selected
-
-        8.  Click “Next"
+        7.  Click “Next"
 
     4.  Save the project
 
@@ -215,7 +209,7 @@ Complete all these instructions on the same calendar day.
 
         2.  Ensure add to is “Don’t add to any project or workspace"
 
-        3.  Select the folder `__PROJECT_NAME__` on the desktop
+        3.  Select and open the folder `__PROJECT_NAME__` on the desktop
 
         4.  Click “Create"
 
@@ -229,34 +223,27 @@ Complete all these instructions on the same calendar day.
 
     6.  Use the directory layout structure like Alamofire
 
-        1.  Use Terminal.app to rename folders
-
-                cd ~/Desktop/__PROJECT_NAME__/iOS\ Example/
-                mv iOS\ Example/ Source
-
-        2.  Use Xcode to update the name and location of these folders
+        1.  Use Xcode to update the name and location of these folders
 
             1.   Open the file iOS Example.xcodeproj in Xcode
 
             2.   Enable to Project navigator on the left and the File inspector on the right
 
-            3.   Use the Project navigator to select the "iOS Example" folder
+            3.   Use the Project navigator to select the "iOS Example" folder (yellow icon)
 
             4.   Use the File inspector to change the name to “Source"
 
-            5.   Use the File inspector to change the location (the folder icon button) to ~/Desktop/`__PROJECT_NAME__`/iOS Example/Source
+        2.  Fix the Info.plist file configuration (Xcode makes renaming folders a pain)
 
-          3.  Fix the Info.plist file configuration (Xcode makes renaming folders a pain)
+            1.  Click "iOS Example" on the left (the blue icon)
 
-              1.  Click "iOS Example" on the left (the blue icon)
+            2.  Click the target "iOS Example" in the middle (app icon)
 
-              2.  Click the target "iOS Example" in the middle
+            3.  Click Build Settings on the top of the middle
 
-              3.  Click Build Settings on the top of the middle
+            4.  Enter "Info.plist" in the search box
 
-              4.  Enter "Info.plist" in the search box
-
-              5.  Edit the "Info.plist File" to be "Source/Info.plist"
+            5.  Edit the "Info.plist File" to be "Source/Info.plist"
 
     7.  Add source code with some functionality to the example
 
@@ -279,15 +266,15 @@ Complete all these instructions on the same calendar day.
 
 4.  Use Xcode to manually to make the iOS Example use the module
 
-    1. Close all projects and workspaces currently open in Xcode
+    1.  Close all projects and workspaces currently open in Xcode
 
     2.  Select File -> New -> Workspace
 
     3.  Select `__PROJECT_NAME__` on the desktop, enter the name `__PROJECT_NAME__` and click save
 
-    4.  Use Finder and drag `__PROJECT_NAME__`.xcodeproj into the workspace in Xcode
+    4.  Use Finder and drag `__PROJECT_NAME__`.xcodeproj into the workspace in Xcode in the Project Navigator section
 
-    5.  Use Finder and drag iOS Example.xcodeproj into the workspace in Xcode (make this below the other one, be sure you do NOT make it subordinated)
+    5.  Use Finder and drag iOS Example.xcodeproj (from inside the "iOS Example" folder) into the workspace in Xcode (make this below the other one, be sure you do NOT make it subordinated)
 
     6.  Click iOS Example on the left
 
@@ -305,7 +292,6 @@ Complete all these instructions on the same calendar day.
                     s-(// +Copyright © ).*-\1__TODAYS_YEAR__ __ORGANIZATION NAME__. All rights reserved.-' \
                 '{}' \;
 
-
     2.  Use Terminal.app to remove all references to development team IDs
 
             find ~/Desktop/__PROJECT_NAME__ -name project.pbxproj \
@@ -322,8 +308,9 @@ Complete all these instructions on the same calendar day.
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/README.md' -o README.md
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CHANGELOG.md' -o CHANGELOG.md
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/CONTRIBUTING.md' -o CONTRIBUTING.md
-        echo '3.0' > .swift-version
+        echo '3.2' > .swift-version
         # Reference https://github.com/Alamofire/Alamofire/blob/master/.swift-version
+        # Reference https://github.com/Alamofire/Alamofire/issues/2185
         # Reference https://github.com/CocoaPods/CocoaPods/pull/5841
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb
         curl 'https://raw.githubusercontent.com/fulldecent/swift3-module-template/master/__PROJECT_NAME__/Project.swift' -o Project.swift
