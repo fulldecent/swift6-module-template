@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/fulldecent/swift3-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift3-module-template)
+[![Build Status](https://travis-ci.org/fulldecent/swift4-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift4-module-template)
 
-# Swift 3 Module Template
-Use this template as a starting point for any Swift 3 module that you want other people to include in their projects.
+# Swift 4 Module Template
+Use this template as a starting point for any Swift 4 module that you want other people to include in their projects.
 
 **STATUS: This template is ready to work in production code.**
 
-![Swift 3 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
+![Swift 4 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
 
 ## Features
-Your new Swift 3 module will immediately have working, compilable code, and all these features:
+Your new Swift 4 module will immediately have working, compilable code, and all these features:
 
 -   Ability to be used from Swift Package Manager, CocoaPods and Carthage
 -   Clean folder structure
@@ -23,7 +23,7 @@ We make the assumption you are using an Xcode project to manage your code.
 
 Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
 
-Or if you have CocoaPods installed, you can alternatively start a new project using this template with: `pod lib create --verbose --template-url='https://github.com/fulldecent/swift3-module-template.git' MyNewPodsName`
+Or if you have CocoaPods installed, you can alternatively start a new project using this template with: `pod lib create --verbose --template-url='https://github.com/fulldecent/swift4-module-template.git' MyNewPodsName`
 
 You then add all the interesting features you want your module to have.
 
