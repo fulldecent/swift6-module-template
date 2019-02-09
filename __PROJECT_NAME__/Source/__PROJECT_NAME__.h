@@ -16,4 +16,5 @@ FOUNDATION_EXPORT const unsigned char __PROJECT_NAME__VersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <__PROJECT_NAME__/PublicHeader.h>
 
-#import <__PROJECT_NAME__/__PROJECT_NAME__Label.h>
+
+#import <__PROJECT_NAME__Label.h>

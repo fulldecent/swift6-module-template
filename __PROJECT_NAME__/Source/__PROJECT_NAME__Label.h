@@ -2,8 +2,8 @@
 //  __PROJECT_NAME__Label.h
 //  __PROJECT_NAME__
 //
-//  Created by Dmytro Zozulia on 23.06.17.
-//  Copyright © 2017 __ORGANIZATION NAME__. All rights reserved.
+//  Created by __AUTHOR NAME__ on __TODAYS_DATE__.
+//  Copyright © __TODAYS_YEAR__ __ORGANIZATION NAME__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
