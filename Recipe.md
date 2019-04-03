@@ -149,6 +149,7 @@ Complete all these instructions on the same calendar day.
                 4. Select "wk.png"
                 5. Ensure that Add to targets has `__PROJECT_NAME__` checked on
                 6. Click "Add"
+            3. Note: usually, resources should be built into an asset catalog deployed in the framework, especially images. This is so App Thinning can remove assets that aren’t appropriate for a specific device, resulting in a smaller app and happier users. Asset catalogs have superior compression options to those available to loose images.
 
     8. Change `__PROJECT_NAME__Label.h` membership to "Public"
 
