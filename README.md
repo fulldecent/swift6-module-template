@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/fulldecent/swift4-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift4-module-template)
+[![Build Status](https://travis-ci.org/fulldecent/swift5-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift5-module-template)
 
 # Swift 5 Module Template
 Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
 
 **STATUS: This template is ready to work in production code.**
 
-![Swift 4 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
+<img width="233" alt="Directory Layout" src="https://user-images.githubusercontent.com/382183/55446250-d7740c80-558c-11e9-8592-cefbe6d6ee8c.png">
 
 ## Features
 Your new Swift 5 module will immediately have working, compilable code, and all these features:
