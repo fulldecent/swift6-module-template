@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/fulldecent/swift4-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift4-module-template)
+[![Build Status](https://travis-ci.org/fulldecent/swift5-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift5-module-template)
 
-# Swift 4 Module Template
-Use this template as a starting point for any Swift 4 module that you want other people to include in their projects.
+# Swift 5 Module Template
+Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
 
 **STATUS: This template is ready to work in production code.**
 
-![Swift 4 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
+<img width="233" alt="Directory Layout" src="https://user-images.githubusercontent.com/382183/55446250-d7740c80-558c-11e9-8592-cefbe6d6ee8c.png">
 
 ## Features
-Your new Swift 4 module will immediately have working, compilable code, and all these features:
+Your new Swift 5 module will immediately have working, compilable code, and all these features:
 
 -   Ability to be used from Swift Package Manager, CocoaPods and Carthage
 -   Clean folder structure
@@ -23,13 +23,13 @@ We make the assumption you are using an Xcode project to manage your code.
 
 Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
 
-Or if you have CocoaPods installed, you can alternatively start a new project using this template with: `pod lib create --verbose --template-url='https://github.com/fulldecent/swift4-module-template.git' MyNewPodsName`
+Or if you have CocoaPods installed, you can alternatively start a new project using this template with: `pod lib create --verbose --template-url='https://github.com/fulldecent/swift5-module-template.git' MyNewPodsName`
 
 You then add all the interesting features you want your module to have.
 
 ### Using CocoaPods to manage dependencies for your example app
 
-You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift3-module-template/issues/8.
+You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift5-module-template/issues/8.
 
 ### Setting up predefined answers
 
