@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/fulldecent/swift4-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift4-module-template)
+[![Build Status](https://travis-ci.org/fulldecent/swift5-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift5-module-template)
 
-# Swift 4 Module Template
-Use this template as a starting point for any Swift 4 module that you want other people to include in their projects.
+# Swift 5 Module Template
+Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
 
-**STATUS: This template is ready to work in production code.**
+**STATUS: This template is ready and works in production code.**
 
 ![Swift 4 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
 
 ## Features
-Your new Swift 4 module will immediately have working, compilable code, and all these features:
+Your new Swift 5 module will immediately have working, compilable code, and all these features:
 
 -   Ability to be used from Swift Package Manager, CocoaPods and Carthage
 -   Clean folder structure
@@ -29,7 +29,7 @@ You then add all the interesting features you want your module to have.
 
 ### Using CocoaPods to manage dependencies for your example app
 
-You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift3-module-template/issues/8.
+You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift5-module-template/issues/8.
 
 ### Setting up predefined answers
 
@@ -54,4 +54,4 @@ If an answer is pre-defined, the `./configure` program will use it; otherwise, i
 
 ## Contributing
 
-See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, ...) of how we made the template.
+See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, …) of how we made the template.
