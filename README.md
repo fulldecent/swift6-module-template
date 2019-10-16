@@ -3,9 +3,9 @@
 # Swift 5 Module Template
 Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
 
-**STATUS: This template is ready to work in production code.**
+**STATUS: This template is ready and works in production code, compatible with Xcode 11.1 (11A1027)**
 
-<img width="233" alt="Directory Layout" src="https://user-images.githubusercontent.com/382183/55446250-d7740c80-558c-11e9-8592-cefbe6d6ee8c.png">
+![Swift 4 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
 
 ## Features
 Your new Swift 5 module will immediately have working, compilable code, and all these features:
@@ -16,14 +16,19 @@ Your new Swift 5 module will immediately have working, compilable code, and all 
 -   Testing as a standard
 -   Turnkey access to Travis CI
 -   Semantic versioning and a CHANGELOG
+-   Included example/demo app
 
 We make the assumption you are using an Xcode project to manage your code.
 
 ## How to use this
 
-Clone or [download a release](https://github.com/fulldecent/swift-package/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
+Clone or [download a release](https://github.com/fulldecent/swift5-module-template/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
 
-Or if you have CocoaPods installed, you can alternatively start a new project using this template with: `pod lib create --verbose --template-url='https://github.com/fulldecent/swift5-module-template.git' MyNewPodsName`
+Or if you have CocoaPods installed, you can alternatively use:
+
+```sh
+pod lib create --verbose --template-url='https://github.com/fulldecent/swift5-module-template.git' MyNewPodName
+```
 
 You then add all the interesting features you want your module to have.
 
@@ -31,9 +36,9 @@ You then add all the interesting features you want your module to have.
 
 You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift5-module-template/issues/8.
 
-### Setting up predefined answers
+### Automating the configure script
 
-You can predefine answers to all configuration questions (e.g. for scripting).
+To skip interactive prompts in the `./configure` script, use these environment variables:
 
 | Template variable                | Environment variable                     |
 | -------------------------------- | ---------------------------------------- |
@@ -46,12 +51,8 @@ You can predefine answers to all configuration questions (e.g. for scripting).
 | `__TODAYS_YEAR__`                | `SMT_TODAYS_YEAR`                        |
 | `__GITHUB_USERNAME__`            | `SMT_GITHUB_USERNAME`                    |
 
-For example, you may use: `export SMT_ORGANIZATION_NAME='Awesome Org'`.
-
-Also note; the project name may be specified as a single command line argument like `./configure MyFantasticProject`.
-
-If an answer is pre-defined, the `./configure` program will use it; otherwise, it will ask for an answer interactively. If neither is given, it will fall back to the built-in default values.
+For example, you may use: `export SMT_ORGANIZATION_NAME='Awesome Org'` before running `./configure`.
 
 ## Contributing
 
-See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, ...) of how we made the template.
+See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, …) of how we made the template.
