@@ -5,7 +5,7 @@ Use this template as a starting point for any Swift 5 module that you want other
 
 **STATUS: This template is ready and works in production code, compatible with Xcode 11.1 (11A1027)**
 
-![Swift 4 Module directory layout](https://user-images.githubusercontent.com/382183/27513507-9799806c-5936-11e7-8d76-4c2ba3019bf9.png)
+![Swift 5 Module directory layout](https://user-images.githubusercontent.com/382183/66881876-63cca680-ef96-11e9-9dde-ae9d5c35350c.png)
 
 ## Features
 Your new Swift 5 module will immediately have working, compilable code, and all these features:
