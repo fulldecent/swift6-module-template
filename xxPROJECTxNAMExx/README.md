@@ -37,47 +37,21 @@ To run the example project, clone this repo, and open iOS Example.xcworkspace fr
 
 ## Installation
 
+Add this to your project using Swift Package Manager. In Xcode that is simply: File > Swift Packages > Add Package Dependency... and you're done. Alternative installations options are shown below for legacy projects.
+
 ### CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
-
-```bash
-$ gem install cocoapods
-```
-
-To integrate xxPROJECTxNAMExx into your Xcode project using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-use_frameworks!
-
-pod 'xxPROJECTxNAMExx'
-```
-
-Then, run the following command:
-
-```bash
-$ pod install
-```
-
+If you are already using [CocoaPods](http://cocoapods.org), just add 'xxPROJECTxNAMExx' to your `Podfile` then run `pod install`.
 
 ### Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
-```
-
-To integrate xxPROJECTxNAMExx into your Xcode project using Carthage, specify it in your `Cartfile`:
+If you are already using [Carthage](https://github.com/Carthage/Carthage), just add to your `Cartfile`:
 
 ```ogdl
 github "__GITHUB_USERNAME__/xxPROJECTxNAMExx" ~> 0.1
 ```
 
-Run `carthage update` to build the framework and drag the built `xxPROJECTxNAMExx`.framework into your Xcode project.
+Then run `carthage update` to build the framework and drag the built `xxPROJECTxNAMExx`.framework into your Xcode project.
 
 
 ## Author
