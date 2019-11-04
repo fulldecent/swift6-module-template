@@ -85,7 +85,7 @@ end
 ##
 
 substitutions = {
-  '__PROJECT_NAME__' => 'MyProject',
+  'xxPROJECTxNAMExx' => 'MyProject',
   '__ORGANIZATION NAME__' => 'Awesome Org',
   'com.AN.ORGANIZATION.IDENTIFIER' => 'com.awesome',
   '__AUTHOR NAME__' => 'Mr McAwesome',
@@ -97,11 +97,11 @@ substitutions.each do |variable, default|
   substitutions[variable] =
     Env.fetch_smt(variable, default, &method(:prompt_for_variable))
 end
-substitutions['--PROJECT-NAME--'] = substitutions['__PROJECT_NAME__']
+# substitutions['--PROJECT-NAME--'] = substitutions['__PROJECT_NAME__']
 
 Dir.chdir File.dirname(__FILE__)
 FileUtils.mkdir_p 'OUTPUT'
-FileUtils.cp_r '__PROJECT_NAME__', 'OUTPUT/'
+FileUtils.cp_r 'xxPROJECTxNAMExx', 'OUTPUT/'
 Dir.chdir 'OUTPUT/'
 
 replace_variables_in_files(substitutions)
