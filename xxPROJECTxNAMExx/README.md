@@ -12,17 +12,15 @@ THIS LIST IS EASY, CHECK IT OFF ONE-BY-ONE BABY! ✔️ ✔️ ✔️
  - [ ] Delete all this crap up here
  - [ ] Make one release (full steps are in [CONTRIBUTING.md] in case you forget)
 
-THEN YOU'RE DONE, GO STAR [swift4-module-template](https://github.com/fulldecent/swift4-module-template) FOR UPDATES.
+THEN YOU'RE DONE, GO STAR [swift5-module-template](https://github.com/fulldecent/swift5-module-template) FOR UPDATES.
 
 ----
 
 # xxPROJECTxNAMExx
 
 [![CI Status](http://img.shields.io/travis/__GITHUB_USERNAME__/xxPROJECTxNAMExx.svg?style=flat)](https://travis-ci.org/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
-[![Version](https://img.shields.io/cocoapods/v/xxPROJECTxNAMExx.svg?style=flat)](https://cocoapods.org/pods/xxPROJECTxNAMExx)
-![License](https://img.shields.io/github/license/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
-[![Platform](https://img.shields.io/cocoapods/p/xxPROJECTxNAMExx.svg?style=flat)](https://cocoapods.org/pods/xxPROJECTxNAMExx)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
+[![License](https://img.shields.io/github/license/__GITHUB_USERNAME__/xxPROJECTxNAMExx)](LICENSE)
 
 <a href="https://placehold.it/400?text=Screen+shot"><img width=200 height=200 src="https://placehold.it/400?text=Screen+shot" alt="Screenshot" /></a>
 
