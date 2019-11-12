@@ -8,7 +8,6 @@ THIS LIST IS EASY, CHECK IT OFF ONE-BY-ONE BABY! ✔️ ✔️ ✔️
  - [ ] Make sure you are using Swift 5 (Edit > Convert > To Current Swift Syntax…)
  - [ ] Fix all build errors and warnings, add tests (yes really)
  - [ ] Add a screenshot or AT LEAST some picture below in this README
- - [ ] Add all details to your [Podspec](xxPROJECTxNAMExx.podspec)
  - [ ] Delete all this crap up here
  - [ ] Make one release (full steps are in [CONTRIBUTING.md] in case you forget)
 
