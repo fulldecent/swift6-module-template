@@ -74,7 +74,7 @@ Use Xcode Version 11.1 (11A1027). *This is the latest publicly released or Gold 
       8. Click “Next"
    3. *Create the project*
       1. Ensure “Create Git Repository" is not selected
-      2. Ensure add to is “Don’t add to any project or workspace"
+      2. Ensure the 'add to' function is “Don’t add to any project or workspace"
       3. Select the folder `xxPROJECTxNAMExx` on the desktop
       4. Click “Create"
 
@@ -84,13 +84,13 @@ Use Xcode Version 11.1 (11A1027). *This is the latest publicly released or Gold 
    1. Open the file iOS Example.xcodeproj in Xcode
    2. Enable the Project navigator on the left
    3. Use the Project navigator to select the "iOS Example" folder (yellow icon)
-   4. From the Project navigator, rename this folder to "Sources"
+   4. From the Project navigator, rename this folder as "Sources"
       * :warning: Using the File inspector to rename a folder would result in the change being reverted. This is an Xcode bug that we work around.
       * :information_source: The Alamofire project uses the folder name "Source" but we choose "Sources" here to be consistent with the default of Swift Package Manager
 2. *Fix the Info.plist file configuration and preview content folder (Xcode makes renaming folders a pain)*
    1. Click "iOS Example" on the left (the blue icon)
    2. Click the target "iOS Example" in the middle (app icon)
-   3. Click Build Settings on the top of the middle
+   3. Click 'Build Settings' on the top of the middle
    4. Enter "/Info" in the search box
    5. Edit the "Info.plist File" from "iOS Example/Info.plist" to be "Sources/Info.plist"
 
@@ -126,7 +126,7 @@ Use Xcode Version 11.1 (11A1027). *This is the latest publicly released or Gold 
 
    1. Click "iOS Example" on the left (the blue icon)
    2. Click the target "iOS Example" in the middle (app icon)
-   3. Click Build Phases on the top of the middle
+   3. Click 'Build Phases' on the top of the middle
    4. Open the section Link Binary With Libraries
    5. Click the plus (+) button
    6. Select xxPROJECTxNAMExx (the building icon)
