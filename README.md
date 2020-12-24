@@ -3,7 +3,7 @@
 # Swift 5 Module Template
 Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
 
-**STATUS: This template is ready and works in production code, compatible with Xcode 11.1 (11A1027)**
+**STATUS: This template is ready and works in production code, compatible with Xcode 12.3 (12C33)**
 
 ![Swift 5 Module directory layout](https://user-images.githubusercontent.com/382183/66881876-63cca680-ef96-11e9-9dde-ae9d5c35350c.png)
 
@@ -16,7 +16,7 @@ Your new Swift 5 module will immediately have working, compilable code, and all 
 -   Testing as a standard
 -   Turnkey access to Travis CI
 -   Semantic versioning and a CHANGELOG
--   Included example/demo app
+-   Included example/demo app using SwiftUI
 
 We make the assumption you are using an Xcode project to manage your code.
 
@@ -53,6 +53,19 @@ To skip interactive prompts in the `./configure` script, use these environment v
 
 For example, you may use: `export SMT_ORGANIZATION_NAME='Awesome Org'` before running `./configure`.
 
+## How it works
+
+```
+┌─────────────┐              ┌─────────────┐              ┌─────────────┐
+│     Use     │              │    Save     │              │Use your own │
+│    Xcode    │─Save recipe─▶│  template   │─./configure─▶│   module    │
+└─────────────┘              └─────────────┘              └─────────────┘
+       ▲              ▲             ▲               ▲            ▲       
+                                                                         
+       │              │             │               │            │       
+        Contributors to this project          End users of this project
+```
+
 ## Contributing
 
-See the file [`Recipe.md`](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, …) of how we made the template.
+See the file [Recipe.md](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, …) of how we made the template.
