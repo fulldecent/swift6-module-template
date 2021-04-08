@@ -17,12 +17,11 @@ Some variables have spaces in them. That is intentional because it causes Xcode 
     -   If this contains the characters `-` or `.` then they will be transliterated to `_` for file names.
 
 -   `__ORGANIZATION NAME__`
--   This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
+    -   This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
     
 -   `com.AN.ORGANIZATION.IDENTIFIER`
 
 -   `__AUTHOR NAME__`
-
     -   This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
 
 -   `__TODAYS_DATE__`
