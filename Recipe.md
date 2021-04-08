@@ -37,6 +37,8 @@ Complete all these instructions on the same calendar day.
 
 Use Xcode Version 12.4 (12D4e). *This is the latest publicly released or Gold Master version.*
 
+This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtNn8lhE (15 minutes).
+
 ### I. Create a package for your module
 
 1. In Xcode, choose File > New > Swift Package…
