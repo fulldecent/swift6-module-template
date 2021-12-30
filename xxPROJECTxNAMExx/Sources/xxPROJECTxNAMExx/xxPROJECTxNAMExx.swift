@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/*@IBDesignable*/ // Xcode does not support IBDesignable, known issue
+@IBDesignable
 public class xxPROJECTxNAMExx: UIView {
     let name = "xxPROJECTxNAMExx loaded"
     
