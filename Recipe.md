@@ -9,11 +9,11 @@ This recipe may also be useful for other scenarios, for example maybe you want t
 
 During the steps of this recipe we enter specific values where needed. These are chosen carefully so that the `./configure` script can later find and replace these values in the template to create your project.
 
-Some variables have spaces in them. That is intentional because it causes Xcode to use double quotes around them in its project configuration files.
+Some variables have spaces in them. That is intentional because Xcode only uses robust quoting in its project configuration files (which we want) if the variables have spaces in them.
 
 -   `xxPROJECTxNAMExx`
     -   This must be a valid C99 extended identifier (otherwise the Xcode check dependencies step fails). It cannot contain spaces.
-    -   This must also be a Uniform Target Identifier (/^[a-zA-Z0-9-.]+$/).
+    -   This must also be a Uniform Target Identifier (``/^[a-zA-Z0-9-.]+$/``).
     -   If this contains the characters `-` or `.` then they will be transliterated to `_` for file names.
 
 -   `__ORGANIZATION NAME__`
@@ -35,13 +35,13 @@ Some variables have spaces in them. That is intentional because it causes Xcode 
 
 Complete all these instructions on the same calendar day.
 
-Use Xcode Version 12.4 (12D4e). *This is the latest publicly released or Gold Master version.*
+Use Xcode Version 13.1 (13A1030d). *This is the latest publicly released or Gold Master version.*
 
 This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtNn8lhE (15 minutes).
 
 ### I. Create a package for your module
 
-1. In Xcode, choose File > New > Swift Package…
+1. In Xcode, choose File > New > Package…
    1. Navigate to your Desktop folder
    2. Type the name `xxPROJECTxNAMExx`
    3. Ensure "Create Git repository on my Mac" is unchecked
@@ -68,11 +68,10 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
 
    2. *Set the project options*
       1. Set Product Name to "iOS Example"
-      2. Set Team to "NONE"
+      2. Set Team to "None"
       3. Set Organization Identifier to `com.AN.ORGANIZATION.IDENTIFIER`
       4. Set User Interface to "SwiftUI"
-      5. Set Life Cycle to "SwiftUI App"
-      6. Set Language to "Swift"
+      5. Set Language to "Swift"
       7. Ensure “Use Core Data” and "Include Tests" are not selected
       8. Click “Next"
    3. *Create the project*
@@ -85,18 +84,16 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
 
 1. *Move iOS Example source code to a folder named "Sources"*
    1. Open the file iOS Example.xcodeproj in Xcode
-   2. Enable the Project navigator on the left (folder icon)
-   3. Use the Project navigator to select the "iOS Example" folder (yellow icon)
+   2. Show the Project navigator on the left (folder icon)
+   3. Use the Project navigator to select the "iOS Example" folder (gray icon)
    4. From the Project navigator, rename this folder as "Sources"
-      * :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/apple/swift-package-manager/blob/b1a6f45aa9daed0c8a609d34af8f71cf4282ddd4/Sources/Workspace/InitPackage.swift#L256)
+      * :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/apple/swift-package-manager/blob/4fd4df4275627ebc91a0f288c38658738cd9fa0f/Sources/Workspace/InitPackage.swift#L275)
 2. *Fix the Info.plist file configuration and preview content folder (Xcode makes renaming folders a pain)*
    1. Click "iOS Example" on the left (the blue icon)
    2. Click the target "iOS Example" in the middle (white app icon)
    3. Click "Build Settings" on the top of the middle
-   4. Enter "/Info" in the search box
-   5. Edit the "Info.plist File" from "iOS Example/Info.plist" to be "Sources/Info.plist”
    6. Enter "Development Assets" in the search box
-   7. Edit the value from “iOS Example/Preview Content” to "Sources/Preview Content"
+   7. In the "Deployment" section, edit the value from “iOS Example/Preview Content” to "Sources/Preview Content"
 
 ### V. Add some functionality to your iOS Example application
 
@@ -110,28 +107,20 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
 ### VI. Make your iOS Example application depend on your module
 
 1. Open iOS Example.xcodeproj in Xcode
+2. In Xcode, choose File > Add Packages...
+   1. Click "Add Local..."
+   2. Select the `xxPROJECTxNAMExx` folder on your desktop
+   3. Click "Add Package"
 
-3. Drag the `xxPROJECTxNAMExx` folder on your desktop into the Xcode Project navigator at the bottom, be sure it is subordinated under iOS Example
-   :x:: ![bad](Recipe.assets/bad.png)
-
-   :white_check_mark:: ![good](Recipe.assets/good.png)
-
-   1. At the dialog "Do you want to save this project in a new workspace?" click "Save"
-   2. Navigate inside the iOS Example folder, in the `xxPROJECTxNAMExx` folder on your desktop
-   3. Set the name as "iOS Example"
-   4. Click Save
-      - ⚠️ Xcode will also show the iOS Example folder inside the `xxPROJECTxNAMExx` module. Swift packages are unable to specify excluded files. You can safely ignore that folder.
-   - :warning: Xcode has an error where this added dependency will show as ".." instead of the correct name. This discrepency can be safely ignored and it will show correctly the next time you open "iOS Example.xcworkspace".
-   
-4. *Add a build dependency*
-
-   1. Click "iOS Example" on the left (the blue icon) at the top-level (not subordinated to the `xxPROJECTxNAMExx` module)
-   2. Click the target "iOS Example" in the middle (white app icon)
-   3. Click "Build Phases" on the top
-   4. Open the section Link Binary With Libraries
-   5. Click the plus (+) button
-   6. Select `xxPROJECTxNAMExx` (the building icon)
-   7. Click "Add"
+3. *Add a build dependency*
+   1. :information_source: You may or may not need to quit and reopen Xcode to proceed and see the required library, this is a known Xcode issue
+   1. Click "iOS Example" on the left (the blue icon)
+   1. Click the target "iOS Example" in the middle (white app icon)
+   1. Click "Build Phases" on the top
+   1. Open the section Link Binary With Libraries
+   1. Click the plus (+) button
+   1. Select `xxPROJECTxNAMExx` (the building icon)
+   1. Click "Add"
 
 ### VII. Add additional project management files to the module
 
@@ -141,14 +130,15 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
 
     ```sh
     cd ~/Desktop/xxPROJECTxNAMExx/
-      curl 'https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore' -o .gitignore
-      curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/.travis.yml' -o .travis.yml
-      curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/LICENSE' -o LICENSE
-      curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/README.md' -o README.md
-      curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/CHANGELOG.md' -o CHANGELOG.md
-      curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/CONTRIBUTING.md' -o CONTRIBUTING.md
-      echo 'xxPROJECTxNAMExx.framework.zip' >> .gitignore
-      curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb
+    curl 'https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore' -o .gitignore
+    mkdir -p .github/workflows
+    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/.github/workflows/ci.yml' -o .github/workflows/ci.yml
+    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/LICENSE' -o LICENSE
+    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/README.md' -o README.md
+    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/CHANGELOG.md' -o CHANGELOG.md
+    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/CONTRIBUTING.md' -o CONTRIBUTING.md
+    echo 'xxPROJECTxNAMExx.framework.zip' >> .gitignore
+    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/master/xxPROJECTxNAMExx/Tests/CheckCocoaPodsQualityIndexes.rb' -o Tests/CheckCocoaPodsQualityIndexes.rb
     ```
 ### VIII. Remove identifying parts of your project
 
@@ -164,14 +154,6 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
              '{}' \;
    ```
 
-2. Use Terminal.app to remove all references to development team IDs
-
-   ```sh
-   find ~/Desktop/xxPROJECTxNAMExx -name project.pbxproj \
-     -exec sed -i '' -E -e '/DevelopmentTeam = /d
-       s/(DEVELOPMENT_TEAM = )[^;]+/\1""/' '{}' \;
-   ```
-
 ## Taste testing
 
 1. Open iOS Example.xcworkspace in Xcode
@@ -180,7 +162,7 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
 
 3. Choose Product > Run
 
-   * :white_check_mark: You should see a big white king (♔). That means it worked!
+   * :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
    
 4. *Compare with the distributed Swift 5 Module Template repository*
 
@@ -199,6 +181,6 @@ This recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtN
        git diff
        ```
 
-       * :white_check_mark: You should see an empty screen (press <kbd>q</kbd> to close)
+       * :white_check_mark: You should see an empty screen indicating no differences (press <kbd>q</kbd> to close)
        * :mega: If you see differences, please raise an issue in the project repository
 
