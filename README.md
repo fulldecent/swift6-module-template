@@ -1,40 +1,29 @@
-[![Build Status](https://travis-ci.org/fulldecent/swift5-module-template.svg?branch=master)](https://travis-ci.org/fulldecent/swift5-module-template)
-
 # Swift 5 Module Template
+
 Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
 
-**STATUS: This template is ready and works in production code, compatible with Xcode 13.1 (13A1030d)**
+**STATUS: This template is ready and works in production code, compatible with Xcode 15.2 (15C500b)**
 
 ![Swift 5 Module directory layout](https://user-images.githubusercontent.com/382183/66881876-63cca680-ef96-11e9-9dde-ae9d5c35350c.png)
 
 ## Features
-Your new Swift 5 module will immediately have working, compilable code, and all these features:
 
--   Ability to be used from Swift Package Manager, CocoaPods and Carthage
+Your new Swift 5 module will immediately have working, compilable code, and implement these best practices:
+
+-   Ability to be used from Swift Package Manager
 -   Clean folder structure
 -   MIT license
 -   Testing as a standard
 -   Turnkey access to GitHub Actions testing
 -   Semantic versioning and a CHANGELOG
 -   Included example/demo app using SwiftUI
-
-We make the assumption you are using an Xcode project to manage your code.
+-   Use a Xcode project to manage your code
 
 ## How to use this
 
-Clone or [download a release](https://github.com/fulldecent/swift5-module-template/releases) and run the  `./configure` program. It will ask you some questions and generate a project.
-
-Or if you have CocoaPods installed, you can alternatively use:
-
-```sh
-pod lib create --verbose --template-url='https://github.com/fulldecent/swift5-module-template.git' MyNewPodName
-```
+Clone or [download a release](https://github.com/fulldecent/swift5-module-template/releases) and run the  `./configure.rb` program. It will ask you some questions and generate a project.
 
 You then add all the interesting features you want your module to have.
-
-### Using CocoaPods to manage dependencies for your example app
-
-You distribute an example app with your new Swift module to show that it works. You may also decide to add UI tests to your example app and some people like to use testing frameworks for those UI tests. If you would like to use CocoaPods to manage the dependencies of your example app, please see the discussion at https://github.com/fulldecent/swift5-module-template/issues/8.
 
 ### Automating the configure script
 
@@ -55,17 +44,19 @@ For example, you may use: `export SMT_ORGANIZATION_NAME='Awesome Org'` before ru
 
 ## How it works
 
-```
-┌─────────────┐              ┌─────────────┐              ┌─────────────┐
-│     Use     │              │    Save     │              │Use your own │
-│    Xcode    │─Save recipe─▶│  template   │─./configure─▶│   module    │
-└─────────────┘              └─────────────┘              └─────────────┘
-       ▲              ▲             ▲               ▲            ▲       
-                                                                         
-       │              │             │               │            │       
-        Contributors to this project          End users of this project
+```mermaid
+graph LR
+    subgraph Contributors to this project
+    X[Use Xcode] --> R[Update Recipe.md]
+    R --> T[Update template]
+    end
+    T --> C
+    subgraph End users of this project
+    C[Run ./configure.rb] --> M[Use your own module]
+    end
 ```
 
 ## Contributing
 
 See the file [Recipe.md](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, …) of how we made the template.
+
