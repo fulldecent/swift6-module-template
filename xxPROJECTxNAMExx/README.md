@@ -17,7 +17,6 @@ THEN YOU'RE DONE, GO STAR [swift5-module-template](https://github.com/fulldecent
 
 # xxPROJECTxNAMExx
 
-[![CI Status](http://img.shields.io/travis/__GITHUB_USERNAME__/xxPROJECTxNAMExx.svg?style=flat)](https://travis-ci.org/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
 [![License](https://img.shields.io/github/license/__GITHUB_USERNAME__/xxPROJECTxNAMExx)](LICENSE)
 
