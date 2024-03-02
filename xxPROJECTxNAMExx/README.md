@@ -17,9 +17,7 @@ THEN YOU'RE DONE, GO STAR [swift5-module-template](https://github.com/fulldecent
 
 # xxPROJECTxNAMExx
 
-[![CI Status](http://img.shields.io/travis/__GITHUB_USERNAME__/xxPROJECTxNAMExx.svg?style=flat)](https://travis-ci.org/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/__GITHUB_USERNAME__/xxPROJECTxNAMExx)
-[![License](https://img.shields.io/github/license/__GITHUB_USERNAME__/xxPROJECTxNAMExx)](LICENSE)
+![GitHub tag (latest SemVer)](https://github.com/__GITHUB_USERNAME__/xxPROJECTxNAMExx/actions/workflows/ci.yml/badge.svg?branch=main)
 
 <a href="https://placehold.it/400?text=Screen+shot"><img width=200 height=200 src="https://placehold.it/400?text=Screen+shot" alt="Screenshot" /></a>
 

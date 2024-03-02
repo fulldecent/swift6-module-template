@@ -4,7 +4,7 @@ Use this template as a starting point for any Swift 5 module that you want other
 
 **STATUS: This template is ready and works in production code, compatible with Xcode 15.2 (15C500b)**
 
-![Swift 5 Module directory layout](https://user-images.githubusercontent.com/382183/66881876-63cca680-ef96-11e9-9dde-ae9d5c35350c.png)
+![Swift 5 Module directory layout](https://github.com/fulldecent/swift5-module-template/assets/382183/1a7965f0-af84-4d00-9bb6-97db76e6e715)
 
 ## Features
 
