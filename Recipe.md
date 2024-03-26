@@ -37,7 +37,7 @@ Some variables have spaces in them. That is intentional because Xcode only uses 
 
 Complete all these instructions on the same calendar day.
 
-Use Xcode Version 15.2 (15C500b). *This is the latest publicly released or Gold Master version.*
+Use Xcode Version 15.3 (15E204a). *This is the latest publicly released or Gold Master version.*
 
 A previous version of this recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtNn8lhE (15 minutes).
 
@@ -110,11 +110,20 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 
 ### VI. Make your Example application depend on your module
 
-1. Open Example.xcodeproj in Xcode
-2. In Xcode, choose File > Add Package Dependencies...
+1. Using Finder, move the Example folder onto your desktop
+   1. :information_source: This is a workaround for the Xcode error "The selected package cannot be a direct ancestor of the project." that started from Xcode version 15.3.
+
+2. Open Example.xcodeproj in Xcode
+3. In Xcode, choose File > Add Package Dependencies...
    1. Click "Add Local..."
    2. Select the `xxPROJECTxNAMExx` folder on your desktop
    3. Click "Add Package"
+4. Quit Xcode (workaround)
+5. Using Finder, move the Example folder back into the `xxPROJECTxNAMExx` folder (workaround)
+6. Use VS Code or similar text editor to manually set the directory path (workaround)
+   1. Open the Example folder
+   2. Find and replace all `../xxPROJECTxNAMExx` to `..`
+
 
 ### VII. Add additional project management files to the module
 
@@ -132,6 +141,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
     curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/CHANGELOG.md' -o CHANGELOG.md
     curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/CONTRIBUTING.md' -o CONTRIBUTING.md
     ```
+
 ### VIII. Remove identifying parts of your project
 
 *This step allows everybody to achieve byte-for-byte consistency with [the published Swift 5 Module Template](https://github.com/fulldecent/swift5-module-template/tree/main/xxPROJECTxNAMExx) but otherwise provides no value to you.*
