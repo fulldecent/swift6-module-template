@@ -34,21 +34,6 @@ To run the example project, clone this repo, and open iOS Example.xcworkspace fr
 
 Add this to your project using Swift Package Manager. In Xcode that is simply: File > Swift Packages > Add Package Dependency... and you're done. Alternative installations options are shown below for legacy projects.
 
-### CocoaPods
-
-If you are already using [CocoaPods](http://cocoapods.org), just add 'xxPROJECTxNAMExx' to your `Podfile` then run `pod install`.
-
-### Carthage
-
-If you are already using [Carthage](https://github.com/Carthage/Carthage), just add to your `Cartfile`:
-
-```ogdl
-github "__GITHUB_USERNAME__/xxPROJECTxNAMExx" ~> 0.1
-```
-
-Then run `carthage update` to build the framework and drag the built `xxPROJECTxNAMExx`.framework into your Xcode project.
-
-
 ## Author
 
 __AUTHOR NAME__
