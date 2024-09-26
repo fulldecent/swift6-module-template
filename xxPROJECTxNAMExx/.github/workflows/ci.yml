@@ -21,6 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 # Keep this up to date with https://github.com/xxPROJECTxNAMExx/xxPROJECTxNAMExx/blob/main/.github/workflows/ci.yml
+# And also https://github.com/Alamofire/Alamofire/blob/master/.github/workflows/ci.yml
 jobs:
   macOS:
     name: ${{ matrix.name }}
@@ -32,6 +33,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - xcode: "Xcode_15.4"
+            runsOn: firebreak
+            name: "macOS 14, Xcode 15.4, Swift 5.10"
+            testPlan: "macOS"
+            outputFilter: xcbeautify --renderer github-actions
           - xcode: "Xcode_15.2"
             runsOn: firebreak
             name: "macOS 13, Xcode 15.2, Swift 5.9.2"
@@ -80,6 +86,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - xcode: "Xcode_15.4"
+            name: "Catalyst 15.4"
+            runsOn: firebreak
           - xcode: "Xcode_15.2"
             name: "Catalyst 15.2"
             runsOn: firebreak
@@ -108,6 +117,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - destination: "OS=17.5,name=iPhone 15 Pro"
+            name: "iOS 17.5"
+            testPlan: "iOS"
+            xcode: "Xcode_15.4"
+            runsOn: firebreak
           - destination: "OS=17.2,name=iPhone 15 Pro"
             name: "iOS 17.2"
             testPlan: "iOS"
@@ -144,6 +158,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - destination: "OS=17.5,name=Apple TV"
+            name: "tvOS 17.5"
+            testPlan: "tvOS"
+            xcode: "Xcode_15.4"
+            runsOn: firebreak
           - destination: "OS=17.2,name=Apple TV"
             name: "tvOS 17.2"
             testPlan: "tvOS"
@@ -201,6 +220,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - destination: "OS=10.5,name=Apple Watch Series 9 (45mm)"
+            name: "watchOS 10.5"
+            testPlan: "watchOS"
+            xcode: "Xcode_15.4"
+            runsOn: firebreak
           - destination: "OS=10.2,name=Apple Watch Series 9 (45mm)"
             name: "watchOS 10.2"
             testPlan: "watchOS"
@@ -216,11 +240,6 @@ jobs:
             testPlan: "watchOS"
             xcode: "Xcode_14.3.1"
             runsOn: macOS-13
-          - destination: "OS=8.5,name=Apple Watch Series 7 (45mm)"
-            name: "watchOS 8.5"
-            testPlan: "watchOS-NoTS"
-            xcode: "Xcode_14.3.1"
-            runsOn: firebreak
     steps:
       - uses: actions/checkout@v4
       - name: Install Firewalk
@@ -237,6 +256,10 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - xcode: "Xcode_15.4"
+            runsOn: firebreak
+            name: "macOS 14, SPM 5.10 Test"
+            outputFilter: xcbeautify --renderer github-actions
           - xcode: "Xcode_15.2"
             runsOn: firebreak
             name: "macOS 13, SPM 5.9.2 Test"
@@ -316,6 +339,9 @@ jobs:
           - branch: swift-5.9-release
             tag: 5.9-RELEASE
             name: Windows Swift 5.9
+          - branch: swift-5.10-release
+            tag: 5.10-RELEASE
+            name: Windows Swift 5.10
     steps:
       - name: Setup
         uses: compnerd/gha-setup-swift@main
