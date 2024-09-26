@@ -1,6 +1,6 @@
-# Swift 5 Module Template
+# Swift 6 Module Template
 
-Use this template as a starting point for any Swift 5 module that you want other people to include in their projects.
+Use this template as a starting point for any Swift 6 module that you want other people to include in their projects.
 
 **STATUS: This template is ready and works in production code, compatible with Xcode 15.2 (15C500b)**
 

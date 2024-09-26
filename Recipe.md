@@ -1,6 +1,6 @@
 # Recipe
 
-This recipe cites all best practices we follow and documents exactly how we created the Swift 5 Module Template which is the [xxPROJECTxNAMExx folder](./xxPROJECTxNAMExx) in this repo.
+This recipe cites all best practices we follow and documents exactly how we created the Swift 6 Module Template which is the [xxPROJECTxNAMExx folder](./xxPROJECTxNAMExx) in this repo.
 
 Please follow along and you should create a template that is identical to the one we provided. If this recipe is not perfect (or your result is different from our template in any way) then please submit an issue or pull request.
 
@@ -37,7 +37,7 @@ Some variables have spaces in them. That is intentional because Xcode only uses 
 
 Complete all these instructions on the same calendar day.
 
-Use Xcode Version 15.3 (15E204a). *This is the latest publicly released or Gold Master version.*
+Use Xcode Version 16.0 (16A242d). *This is the latest publicly released or Gold Master version.*
 
 A previous version of this recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtNn8lhE (15 minutes).
 
@@ -45,10 +45,11 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 
 1. In Xcode, choose File > New > Package…
    1. Choose Multiplatform > Library > Library, and click "Next"
-   2. Navigate to your Desktop folder
-   3. Type the name `xxPROJECTxNAMExx`
-   4. Ensure "Create Git repository on my Mac" is unchecked
-   5. Click “Create"
+   2. For testing system, select Swift Testing, and click "Next"
+   3. Navigate to your Desktop folder
+   4. Type the name `xxPROJECTxNAMExx`
+   5. Ensure "Create Git repository on my Mac" is unchecked
+   6. Click “Create"
 
 
 ### II. Add some functionality to the module
@@ -57,18 +58,15 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 
    ```sh
    cd ~/Desktop/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/
-   curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/xxPROJECTxNAMExx.swift' -o xxPROJECTxNAMExx.swift
-   curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/White%20King.swift' -o White\ King.swift
+   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/xxPROJECTxNAMExx.swift' -o xxPROJECTxNAMExx.swift
+   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/White%20King.swift' -o White\ King.swift
    ```
 
 ### III. Create a Swift project for your Example application
 
 1. In Xcode, choose File > New > Project…
    1. *Choose a template*
-      1. Click "iOS" then "App"
-
-      2. Click "Next"
-
+      1. Click iOS > Application > App, and click "Next"
    2. *Set the project options*
       1. Set Product Name to "Example"
       2. Set Team to "None"
@@ -89,12 +87,12 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 1. *Move Example source code to a folder named "Sources"*
    1. Open the file Example.xcodeproj in Xcode
    2. Show the Project navigator on the left (folder icon)
-   3. Use the Project navigator to select the "Example" folder (gray icon)
+   3. Use the Project navigator to select the "Example" folder (blue icon)
    4. From the Project navigator, rename this folder as "Sources"
-      * :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/apple/swift-package-manager/blob/swift-5.9.2-RELEASE/Sources/Workspace/InitPackage.swift#L505)
+      * :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/swiftlang/swift-package-manager/blob/dd22b6ef16315fcdcb07c1f86bd608598f102e20/Sources/Workspace/InitPackage.swift#L566)
 2. *Fix the Info.plist file configuration and preview content folder (Xcode makes renaming folders a pain)*
-   1. Click "Example" on the left (the blue icon)
-   2. Click the target "Example" in the middle (gray app icon)
+   1. Click "Example" on the left (the blue app icon)
+   2. In the middle area, click the target "Example" (gray app icon)
    3. Click "Build Settings" on the top of the middle
    6. Enter "Development Assets" in the search box
    7. In the "Deployment" section, edit the value from “Example/Preview Content” to "Sources/Preview Content"
@@ -105,24 +103,17 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 
    ```sh
    cd ~/Desktop/xxPROJECTxNAMExx/Example/Sources
-   curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/Example/Sources/ContentView.swift' -o ContentView.swift
+   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Example/Sources/ContentView.swift' -o ContentView.swift
    ```
 
 ### VI. Make your Example application depend on your module
 
-1. Using Finder, move the Example folder onto your desktop
-   1. :information_source: This is a workaround for the Xcode error "The selected package cannot be a direct ancestor of the project." that started from Xcode version 15.3.
-
-2. Open Example.xcodeproj in Xcode
+1. Open Example.xcodeproj in Xcode
 3. In Xcode, choose File > Add Package Dependencies...
    1. Click "Add Local..."
    2. Select the `xxPROJECTxNAMExx` folder on your desktop
    3. Click "Add Package"
-4. Quit Xcode (workaround)
-5. Using Finder, move the Example folder back into the `xxPROJECTxNAMExx` folder (workaround)
-6. Use VS Code or similar text editor to manually set the directory path (workaround)
-   1. Open the Example folder
-   2. Find and replace all `../xxPROJECTxNAMExx` to `..`
+   4. In the choose package products, set the "add to target" to "Example", and click "Add Package"
 
 
 ### VII. Add additional project management files to the module
@@ -135,16 +126,16 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
     cd ~/Desktop/xxPROJECTxNAMExx/
     curl 'https://raw.githubusercontent.com/github/gitignore/main/Swift.gitignore' -o .gitignore
     mkdir -p .github/workflows
-    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/.github/workflows/ci.yml' -o .github/workflows/ci.yml
-    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/LICENSE' -o LICENSE
-    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/README.md' -o README.md
-    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/CHANGELOG.md' -o CHANGELOG.md
-    curl 'https://raw.githubusercontent.com/fulldecent/swift5-module-template/main/xxPROJECTxNAMExx/CONTRIBUTING.md' -o CONTRIBUTING.md
+    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/.github/workflows/ci.yml' -o .github/workflows/ci.yml
+    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/LICENSE' -o LICENSE
+    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/README.md' -o README.md
+    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/CHANGELOG.md' -o CHANGELOG.md
+    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/CONTRIBUTING.md' -o CONTRIBUTING.md
     ```
 
 ### VIII. Remove identifying parts of your project
 
-*This step allows everybody to achieve byte-for-byte consistency with [the published Swift 5 Module Template](https://github.com/fulldecent/swift5-module-template/tree/main/xxPROJECTxNAMExx) but otherwise provides no value to you.*
+*This step allows everybody to achieve byte-for-byte consistency with [the published Swift 6 Module Template](https://github.com/fulldecent/swift5-module-template/tree/main/xxPROJECTxNAMExx) but otherwise provides no value to you.*
 
 1. Use Terminal.app to find and replace all occurrences of hard-coded strings with template variables
 
@@ -166,18 +157,18 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 
    * :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
    
-4. *Compare with the distributed Swift 5 Module Template repository*
+4. *Compare with the distributed Swift 6 Module Template repository*
 
-   1.  Use Terminal.app to clone the repository to your desktop
+   1.  Use Terminal.app to clone the repository to your Developer folder
 
        ```sh
-       git clone https://github.com/fulldecent/swift5-module-template.git ~/Desktop/swift5-module-template
+       git clone https://github.com/fulldecent/swift6-module-template.git ~/Developer/swift6-module-template
        ```
 
    2.  Compare the distributed version with your version
 
        ```sh
-       cd ~/Desktop/swift5-module-template
+       cd ~/Developer/swift6-module-template
        rm -rf xxPROJECTxNAMExx
        cp -r ~/Desktop/xxPROJECTxNAMExx .
        git diff
