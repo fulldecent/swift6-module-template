@@ -8,7 +8,7 @@ Use this template as a starting point for any Swift 6 module that you want other
 
 ## Features
 
-Your new Swift 5 module will immediately have working, compilable code, and implement these best practices:
+Your new Swift module will immediately have working, compilable code, and implement these best practices:
 
 -   Ability to be used from Swift Package Manager
 -   Clean folder structure
