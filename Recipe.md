@@ -6,40 +6,38 @@ Please follow along and you should create a template that is identical to the on
 
 This recipe may also be useful for other scenarios, for example maybe you want to make a project that has the Example app using storyboards instead of SwiftUI.
 
-
 ## Ingredients
 
-During the steps of this recipe we enter specific values where needed. These are chosen carefully so that the `./configure.rb` script can later find and replace these values in the template to create your project.
+During the steps of this recipe we enter specific values where needed. These are chosen carefully so that the `./configure.swift` script can later find and replace these values in the template to create your project.
 
 Some variables have spaces in them. That is intentional because Xcode only uses robust quoting in its project configuration files (which we want) if the variables have spaces in them.
 
--   `xxPROJECTxNAMExx`
-    -   This must be a valid C99 extended identifier (otherwise the Xcode check dependencies step fails). It cannot contain spaces.
-    -   This must also be a Uniform Target Identifier (``/^[a-zA-Z0-9-.]+$/``).
-    -   If this contains the characters `-` or `.` then they will be transliterated to `_` for file names.
+- `xxPROJECTxNAMExx`
+  - This must be a valid C99 extended identifier (otherwise the Xcode check dependencies step fails). It cannot contain spaces.
+  - This must also be a Uniform Target Identifier (``/^[a-zA-Z0-9-.]+$/``).
+  - If this contains the characters `-` or `.` then they will be transliterated to `_` for file names.
 
--   `__ORGANIZATION NAME__`
-    -   This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
-    
--   `com.AN.ORGANIZATION.IDENTIFIER`
+- `__ORGANIZATION NAME__`
+  - This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
 
--   `__AUTHOR NAME__`
-    -   This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
+- `com.AN.ORGANIZATION.IDENTIFIER`
 
--   `__TODAYS_DATE__`
+- `__AUTHOR NAME__`
+  - This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
 
--   `__TODAYS_YEAR__`
+- `__TODAYS_DATE__`
 
--   `__GITHUB_USERNAME__`
+- `__TODAYS_YEAR__`
 
+- `__GITHUB_USERNAME__`
 
 ## Steps
 
 Complete all these instructions on the same calendar day.
 
-Use Xcode Version 16.0 (16A242d). *This is the latest publicly released or Gold Master version.*
+Use Xcode version 16.3 (16E140). *This is the latest publicly released or Gold Master version.*
 
-A previous version of this recipe is also demonstrated in a YouTube flyover at https://youtu.be/ksYXtNn8lhE (15 minutes).
+A previous version of this recipe is also demonstrated in a YouTube flyover at <https://youtu.be/ksYXtNn8lhE> (15 minutes).
 
 ### I. Create a package for your module
 
@@ -50,7 +48,6 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
    4. Type the name `xxPROJECTxNAMExx`
    5. Ensure "Create Git repository on my Mac" is unchecked
    6. Click “Create"
-
 
 ### II. Add some functionality to the module
 
@@ -73,9 +70,10 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
       3. Set Organization Identifier to `com.AN.ORGANIZATION.IDENTIFIER`
       4. Set User Interface to "SwiftUI"
       5. Set Language to "Swift"
-      6. Set Storage to "None"
-      7. Ensure "Include Tests" is not selected
-      8. Click “Next"
+      6. Set Testing System to "Swift Testing with XCTest UI Tests"
+      7. Set Storage to "None"
+      8. Ensure "Host in CloudKit" is not selected
+      9. Click “Next"
    3. *Create the project*
       1. Ensure “Create Git Repository on my Mac" is not selected
       2. Ensure "Add to" is “Don’t add to any project or workspace"
@@ -85,17 +83,17 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 ### IV. Use the directory layout structure like Alamofire
 
 1. *Move Example source code to a folder named "Sources"*
-   1. Open the file Example.xcodeproj in Xcode
+   :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/swiftlang/swift-package-manager/blob/451196234d81f82a147293105fd4467cdd69b6ac/Sources/Workspace/InitPackage.swift#L570C48-L570C50).
+   
+   1. Open the file Example.xcodeproj in Xcode (it's on your desktop, in the xxPROJECTxNAMExx > Example folder)
+   
+      :information_source: You will see "Cannot preview in this file", but we resolve this in the step "Make your Example application depend on your module" below.
+   
    2. Show the Project navigator on the left (folder icon)
+   
    3. Use the Project navigator to select the "Example" folder (blue icon)
+   
    4. From the Project navigator, rename this folder as "Sources"
-      * :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/swiftlang/swift-package-manager/blob/dd22b6ef16315fcdcb07c1f86bd608598f102e20/Sources/Workspace/InitPackage.swift#L566)
-2. *Fix the Info.plist file configuration and preview content folder (Xcode makes renaming folders a pain)*
-   1. Click "Example" on the left (the blue app icon)
-   2. In the middle area, click the target "Example" (gray app icon)
-   3. Click "Build Settings" on the top of the middle
-   6. Enter "Development Assets" in the search box
-   7. In the "Deployment" section, edit the value from “Example/Preview Content” to "Sources/Preview Content"
 
 ### V. Add some functionality to your Example application
 
@@ -109,12 +107,12 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 ### VI. Make your Example application depend on your module
 
 1. Open Example.xcodeproj in Xcode
-3. In Xcode, choose File > Add Package Dependencies...
+2. In Xcode, choose File > Add Package Dependencies...
    1. Click "Add Local..."
-   2. Select the `xxPROJECTxNAMExx` folder on your desktop
+   2. Select the folder `xxPROJECTxNAMExx` on the desktop (don't double click it)
    3. Click "Add Package"
    4. In the choose package products, set the "add to target" to "Example", and click "Add Package"
-
+3. In Xcode, choose File > Packages > Reset Package Caches
 
 ### VII. Add additional project management files to the module
 
@@ -155,17 +153,17 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
 
 3. Choose Product > Run
 
-   * :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
-   
+   - :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
+
 4. *Compare with the distributed Swift 6 Module Template repository*
 
-   1.  Use Terminal.app to clone the repository to your Developer folder
+   1. Use Terminal.app to clone the repository to your Developer folder
 
        ```sh
        git clone https://github.com/fulldecent/swift6-module-template.git ~/Developer/swift6-module-template
        ```
 
-   2.  Compare the distributed version with your version
+   2. Compare the distributed version with your version
 
        ```sh
        cd ~/Developer/swift6-module-template
@@ -174,6 +172,5 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at h
        git diff
        ```
 
-       * :white_check_mark: You should see an empty screen indicating no differences (press <kbd>q</kbd> to close)
-       * :mega: If you see differences, please raise an issue in the project repository
-
+       - :white_check_mark: You should see an empty screen indicating no differences (press <kbd>q</kbd> to close)
+       - :mega: If you see differences, please raise an issue in the project repository

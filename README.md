@@ -2,7 +2,7 @@
 
 Use this template as a starting point for any Swift 6 module that you want other people to include in their projects.
 
-**STATUS: This template is ready and works in production code, compatible with Xcode Version 16.0 (16A242d)**
+**STATUS: This template is ready and works in production code, compatible with Xcode version 16.3 (16E140)**
 
 ![Swift 5 Module directory layout](https://github.com/fulldecent/swift5-module-template/assets/382183/1a7965f0-af84-4d00-9bb6-97db76e6e715)
 
@@ -51,7 +51,7 @@ graph LR
     end
     T --> C
     subgraph End users of this project
-    C[Run ./configure.rb] --> M[Use your own module]
+    C[Run ./configure.swift] --> M[Use your own module]
     end
 ```
 
