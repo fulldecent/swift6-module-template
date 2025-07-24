@@ -10,19 +10,17 @@ This recipe may also be useful for other scenarios, for example maybe you want t
 
 During the steps of this recipe we enter specific values where needed. These are chosen carefully so that the `./configure.swift` script can later find and replace these values in the template to create your project.
 
-Some variables have spaces in them. That is intentional because Xcode only uses robust quoting in its project configuration files (which we want) if the variables have spaces in them.
-
 - `xxPROJECTxNAMExx`
   - This must be a valid C99 extended identifier (otherwise the Xcode check dependencies step fails). It cannot contain spaces.
   - This must also be a Uniform Target Identifier (``/^[a-zA-Z0-9-.]+$/``).
   - If this contains the characters `-` or `.` then they will be transliterated to `_` for file names.
 
-- `__ORGANIZATION NAME__`
+- `__ORGANIZATION_NAME__`
   - This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
 
 - `com.AN.ORGANIZATION.IDENTIFIER`
 
-- `__AUTHOR NAME__`
+- `__AUTHOR_NAME__`
   - This intentionally has a space which causes Xcode to use double quotes in its project configuration files.
 
 - `__TODAYS_DATE__`
@@ -35,7 +33,7 @@ Some variables have spaces in them. That is intentional because Xcode only uses 
 
 Complete all these instructions on the same calendar day.
 
-Use Xcode version 16.3 (16E140). *This is the latest publicly released or Gold Master version.*
+Use Xcode version 16.4 (16F6). *This is the latest publicly released or Gold Master version.*
 
 A previous version of this recipe is also demonstrated in a YouTube flyover at <https://youtu.be/ksYXtNn8lhE> (15 minutes).
 
@@ -58,6 +56,13 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/xxPROJECTxNAMExx.swift' -o xxPROJECTxNAMExx.swift
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/White%20King.swift' -o White\ King.swift
    ```
+
+2. Quit Xcode
+   :information_source: This is a workaround for a bug introduced in Xcode 16.4 (16F6) where opening a Swift package then also opening a project containing that package at the same time produces the error:
+
+   > Compiled module was created by a different version of the compiler '6.1.0.110.21'
+
+   :information_source: This is also a separate workaround for a separate bug introduced in Xcode 16.4 (16F6) which reproducibly crashes the program at this step if you attempt to build the Example project and then close that window.
 
 ### III. Create a Swift project for your Example application
 
@@ -84,15 +89,15 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
 
 1. *Move Example source code to a folder named "Sources"*
    :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/swiftlang/swift-package-manager/blob/451196234d81f82a147293105fd4467cdd69b6ac/Sources/Workspace/InitPackage.swift#L570C48-L570C50).
-   
+
    1. Open the file Example.xcodeproj in Xcode (it's on your desktop, in the xxPROJECTxNAMExx > Example folder)
-   
+
       :information_source: You will see "Cannot preview in this file", but we resolve this in the step "Make your Example application depend on your module" below.
-   
+
    2. Show the Project navigator on the left (folder icon)
-   
+
    3. Use the Project navigator to select the "Example" folder (blue icon)
-   
+
    4. From the Project navigator, rename this folder as "Sources"
 
 ### V. Add some functionality to your Example application
@@ -140,8 +145,8 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    ```sh
    find -E ~/Desktop/xxPROJECTxNAMExx \
            -type f -name '*.swift' -exec sed -i '' -E -e '
-             s-(// +Created by ).*( on ).*\.-\1__AUTHOR NAME__\2__TODAYS_DATE__.-
-             s-(// +Copyright © ).*-\1__TODAYS_YEAR__ __ORGANIZATION NAME__. All rights reserved.-' \
+             s-(// +Created by ).*( on ).*\.-\1__AUTHOR_NAME__\2__TODAYS_DATE__.-
+             s-(// +Copyright © ).*-\1__TODAYS_YEAR__ __ORGANIZATION_NAME__. All rights reserved.-' \
              '{}' \;
    ```
 
@@ -152,8 +157,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
 2. Use the scheme navigator to select Example and the latest iPhone version simulator
 
 3. Choose Product > Run
-
-   - :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
+   :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
 
 4. *Compare with the distributed Swift 6 Module Template repository*
 

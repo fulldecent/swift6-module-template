@@ -2,7 +2,7 @@
 //  ExampleApp.swift
 //  Example
 //
-//  Created by __AUTHOR NAME__ on __TODAYS_DATE__.
+//  Created by __AUTHOR_NAME__ on __TODAYS_DATE__.
 //
 
 import SwiftUI

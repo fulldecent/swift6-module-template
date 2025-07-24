@@ -85,9 +85,9 @@ yearFormatter.dateFormat = "yyyy"
 
 var substitutionPairs: [(from: String, to: String)] = [
   (from: "xxPROJECTxNAMExx", to: "MyProject"),
-  (from: "__ORGANIZATION NAME__", to: "Awesome Org"),
+  (from: "__ORGANIZATION_NAME__", to: "Awesome Org"),
   (from: "com.AN.ORGANIZATION.IDENTIFIER", to: "com.awesome"),
-  (from: "__AUTHOR NAME__", to: "Mr McAwesome"),
+  (from: "__AUTHOR_NAME__", to: "Mr McAwesome"),
   (from: "__TODAYS_DATE__", to: DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .none)),
   (from: "__TODAYS_YEAR__", to: yearFormatter.string(from: Date())),
   (from: "__GITHUB_USERNAME__", to: "awesome_octocat")
