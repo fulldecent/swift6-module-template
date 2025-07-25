@@ -24,7 +24,7 @@ THEN YOU'RE DONE, GO STAR [swift5-module-template](https://github.com/fulldecent
 
 ## Example
 
-To run the example project, clone this repo, and open iOS Example.xcworkspace from the iOS Example directory.
+To run the example project, clone this repo, and open Example.xcworkspace from the iOS Example directory.
 
 
 ## Requirements
@@ -32,7 +32,7 @@ To run the example project, clone this repo, and open iOS Example.xcworkspace fr
 
 ## Installation
 
-Add this to your project using Swift Package Manager. In Xcode that is simply: File > Swift Packages > Add Package Dependency... and you're done. Alternative installations options are shown below for legacy projects.
+Add this to your project using Swift Package Manager. In Xcode that is simply: File > Swift Packages > Add Package Dependency... and you're done.
 
 ## Author
 
