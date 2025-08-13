@@ -36,7 +36,7 @@ jobs:
         include:
           - xcode: "Xcode_16.3"
             runsOn: macos-latest
-            name: "macOS, Xcode 16.3, Swift 6.0"
+            name: "macOS, Xcode 16.3, Swift 6.1"
           - xcode: "Xcode_15.4"
             runsOn: macos-14
             name: "macOS 14, Xcode 15.4, Swift 5.10"
