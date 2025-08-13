@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   test-configure-script:
-    name: Test configure.swift script
+    name: Test configure.swift script and generate project
     runs-on: macos-latest
     timeout-minutes: 10
     steps:
@@ -22,7 +22,7 @@ jobs:
       
       - name: Test configure script with environment variables
         env:
-          SMT_PROJECT_NAME: "TestModule"
+          SMT_XXPROJECTXNAMEXX: "TestModule"
           SMT_ORGANIZATION_NAME: "Test Organization"
           SMT_COM_AN_ORGANIZATION_IDENTIFIER: "com.test.organization"
           SMT_AUTHOR_NAME: "Test Author"
@@ -44,20 +44,41 @@ jobs:
           test -d Tests/TestModuleTests
           test -d .github/workflows
           
-      - name: Test generated Swift package builds
-        run: |
-          cd OUTPUT/TestModule
-          swift build
+      - name: Upload generated project as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-project
+          path: OUTPUT/TestModule/
+
+  test-generated-project:
+    name: Test generated project using template workflow
+    needs: test-configure-script
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Download generated project
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-project
+          path: TestModule/
           
-      - name: Test generated Swift package tests
+      - name: Test generated Swift package
         run: |
-          cd OUTPUT/TestModule
+          cd TestModule
+          swift build
           swift test
           
-      - name: Test generated Example project builds
+      - name: Test generated Example project
         run: |
-          cd OUTPUT/TestModule/Example
+          cd TestModule/Example
           xcodebuild -project Example.xcodeproj -scheme Example -destination "platform=iOS Simulator,name=iPhone 15 Pro" clean build
+
+  delegate-to-template-workflow:
+    name: Delegate to template workflow
+    needs: test-configure-script
+    uses: ./xxPROJECTxNAMExx/.github/workflows/ci.yml
 
   validate-template-workflow:
     name: Validate template workflow syntax
@@ -92,7 +113,7 @@ jobs:
       
       - name: Test with Swift ${{ matrix.swift-version }}
         env:
-          SMT_PROJECT_NAME: "TestModule${{ matrix.swift-version }}"
+          SMT_XXPROJECTXNAMEXX: "TestModule${{ matrix.swift-version }}"
           SMT_ORGANIZATION_NAME: "Test Organization"
           SMT_COM_AN_ORGANIZATION_IDENTIFIER: "com.test.organization"
           SMT_AUTHOR_NAME: "Test Author"

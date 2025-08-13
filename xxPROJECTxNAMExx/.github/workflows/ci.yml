@@ -17,6 +17,7 @@ on:
       - '.github/workflows/**'
       - 'Package.swift'
       - 'Example/**'
+  workflow_call:
 
 concurrency: 
   group: ${{ github.ref_name }}
