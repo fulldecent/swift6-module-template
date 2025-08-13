@@ -9,21 +9,22 @@ on:
       - 'Tests/**'
       - '.github/workflows/**'
       - 'Package.swift'
+      - 'Example/**'
   pull_request:
     paths:
       - 'Sources/**'
       - 'Tests/**'
       - '.github/workflows/**'
       - 'Package.swift'
+      - 'Example/**'
+  workflow_call:
 
 concurrency: 
   group: ${{ github.ref_name }}
   cancel-in-progress: true
 
-# Keep this up to date with https://github.com/xxPROJECTxNAMExx/xxPROJECTxNAMExx/blob/main/.github/workflows/ci.yml
-# And also https://github.com/Alamofire/Alamofire/blob/master/.github/workflows/ci.yml
 jobs:
-  macOS:
+  swift-package:
     name: ${{ matrix.name }}
     runs-on: ${{ matrix.runsOn }}
     env:
@@ -33,342 +34,46 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - xcode: "Xcode_16.3"
+            runsOn: macos-latest
+            name: "macOS, Xcode 16.3, Swift 6.1"
           - xcode: "Xcode_15.4"
-            runsOn: firebreak
+            runsOn: macos-14
             name: "macOS 14, Xcode 15.4, Swift 5.10"
-            testPlan: "macOS"
-            outputFilter: xcbeautify --renderer github-actions
           - xcode: "Xcode_15.2"
-            runsOn: firebreak
+            runsOn: macos-13
             name: "macOS 13, Xcode 15.2, Swift 5.9.2"
-            testPlan: "macOS"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_15.1"
-            runsOn: macOS-14
-            name: "macOS 14, Xcode 15.1, Swift 5.9.1"
-            testPlan: "macOS"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_15.0.1"
-            runsOn: macOS-14
-            name: "macOS 14, Xcode 15.0.1, Swift 5.9.0"
-            testPlan: "macOS"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_14.3.1"
-            runsOn: macOS-13
-            name: "macOS 13, Xcode 14.3.1, Swift 5.8.0"
-            testPlan: "macOS"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_14.2"
-            runsOn: macOS-12
-            name: "macOS 12, Xcode 14.2, Swift 5.7.2"
-            testPlan: "macOS"
-            outputFilter: xcpretty
-          - xcode: "Xcode_14.1"
-            runsOn: macOS-12
-            name: "macOS 12, Xcode 14.1, Swift 5.7.1"
-            testPlan: "macOS"
-            outputFilter: xcpretty
     steps:
       - uses: actions/checkout@v4
-      - name: ${{ matrix.name }}
-        run: |-
-          set -o pipefail
-          brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk
-          firewalk &
-          env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire macOS" -destination "platform=macOS" -testPlan "${{ matrix.testPlan }}" clean test | ${{ matrix.outputFilter }}
-  Catalyst:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: /Applications/${{ matrix.xcode }}.app/Contents/Developer
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - xcode: "Xcode_15.4"
-            name: "Catalyst 15.4"
-            runsOn: firebreak
-          - xcode: "Xcode_15.2"
-            name: "Catalyst 15.2"
-            runsOn: firebreak
-          - xcode: "Xcode_15.1"
-            name: "Catalyst 15.1"
-            runsOn: macOS-14
-          - xcode: "Xcode_15.0.1"
-            name: "Catalyst 15.0"
-            runsOn: macOS-14
-          - xcode: "Xcode_14.3.1"
-            name: "Catalyst 14.3.1"
-            runsOn: macOS-13
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Firewalk
-        run: brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk && firewalk &
-      - name: Catalyst
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire iOS" -destination "platform=macOS" clean test 2>&1 | xcbeautify --renderer github-actions
-  iOS:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - destination: "OS=17.5,name=iPhone 15 Pro"
-            name: "iOS 17.5"
-            testPlan: "iOS"
-            xcode: "Xcode_15.4"
-            runsOn: firebreak
-          - destination: "OS=17.2,name=iPhone 15 Pro"
-            name: "iOS 17.2"
-            testPlan: "iOS"
-            xcode: "Xcode_15.2"
-            runsOn: firebreak
-          - destination: "OS=17.0,name=iPhone 15 Pro"
-            name: "iOS 17.0"
-            testPlan: "iOS"
-            xcode: "Xcode_15.0.1"
-            runsOn: macOS-14
-          - destination: "OS=16.4,name=iPhone 14 Pro"
-            name: "iOS 16.4"
-            testPlan: "iOS"
-            xcode: "Xcode_14.3.1"
-            runsOn: macOS-13
-          - destination: "OS=15.5,name=iPhone 13 Pro"
-            name: "iOS 15.5"
-            testPlan: "iOS-NoTS"
-            xcode: "Xcode_14.3.1"
-            runsOn: firebreak
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Firewalk
-        run: brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk && firewalk &
-      - name: ${{ matrix.name }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire iOS" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
-  tvOS:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: /Applications/${{ matrix.xcode }}.app/Contents/Developer
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - destination: "OS=17.5,name=Apple TV"
-            name: "tvOS 17.5"
-            testPlan: "tvOS"
-            xcode: "Xcode_15.4"
-            runsOn: firebreak
-          - destination: "OS=17.2,name=Apple TV"
-            name: "tvOS 17.2"
-            testPlan: "tvOS"
-            xcode: "Xcode_15.2"
-            runsOn: firebreak
-          - destination: "OS=17.0,name=Apple TV"
-            name: "tvOS 17.0"
-            testPlan: "tvOS"
-            xcode: "Xcode_15.0.1"
-            runsOn: macOS-14
-          - destination: "OS=16.4,name=Apple TV"
-            name: "tvOS 16.4"
-            testPlan: "tvOS"
-            xcode: "Xcode_14.3.1"
-            runsOn: macOS-13
-          - destination: "OS=15.4,name=Apple TV"
-            name: "tvOS 15.4"
-            testPlan: "tvOS-NoTS"
-            xcode: "Xcode_14.3.1"
-            runsOn: firebreak
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Firewalk
-        run: brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk && firewalk &
-      - name: ${{ matrix.name }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire tvOS" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
-  visionOS:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: "/Applications/Xcode_15.2.app/Contents/Developer"
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - destination: "OS=1.0,name=Apple Vision Pro"
-            name: "visionOS 1.0"
-            testPlan: "visionOS"
-            scheme: "Alamofire visionOS"
-            runsOn: firebreak
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Firewalk
-        run: brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk && firewalk &
-      - name: ${{ matrix.name }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "${{ matrix.scheme }}" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
-  watchOS:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: /Applications/${{ matrix.xcode }}.app/Contents/Developer
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - destination: "OS=10.5,name=Apple Watch Series 9 (45mm)"
-            name: "watchOS 10.5"
-            testPlan: "watchOS"
-            xcode: "Xcode_15.4"
-            runsOn: firebreak
-          - destination: "OS=10.2,name=Apple Watch Series 9 (45mm)"
-            name: "watchOS 10.2"
-            testPlan: "watchOS"
-            xcode: "Xcode_15.2"
-            runsOn: firebreak
-          - destination: "OS=10.0,name=Apple Watch Series 9 (45mm)"
-            name: "watchOS 10.0"
-            testPlan: "watchOS"
-            xcode: "Xcode_15.0.1"
-            runsOn: macOS-14
-          - destination: "OS=9.4,name=Apple Watch Series 8 (45mm)"
-            name: "watchOS 9.4"
-            testPlan: "watchOS"
-            xcode: "Xcode_14.3.1"
-            runsOn: macOS-13
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Firewalk
-        run: brew update && brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk && firewalk &
-      - name: ${{ matrix.name }}
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire watchOS" -destination "${{ matrix.destination }}" -testPlan "${{ matrix.testPlan }}" clean test 2>&1 | xcbeautify --renderer github-actions
-  SPM:
-    name: ${{ matrix.name }}
-    runs-on: ${{ matrix.runsOn }}
-    env:
-      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - xcode: "Xcode_15.4"
-            runsOn: firebreak
-            name: "macOS 14, SPM 5.10 Test"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_15.2"
-            runsOn: firebreak
-            name: "macOS 13, SPM 5.9.2 Test"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_15.1"
-            runsOn: macOS-14
-            name: "macOS 14, SPM 5.9.1 Test"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_15.0.1"
-            runsOn: macOS-14
-            name: "macOS 14, SPM 5.9.0 Test"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_14.3.1"
-            runsOn: macOS-13
-            name: "macOS 13, SPM 5.8.0 Test"
-            outputFilter: xcbeautify --renderer github-actions
-          - xcode: "Xcode_14.2"
-            runsOn: macOS-12
-            name: "macOS 12, SPM 5.7.2 Test"
-            outputFilter: xcpretty
-          - xcode: "Xcode_14.1"
-            runsOn: macOS-12
-            name: "macOS 12, SPM 5.7.1 Test"
-            outputFilter: xcpretty
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Firewalk
-        run: brew install alamofire/alamofire/firewalk || brew upgrade alamofire/alamofire/firewalk xcbeautify && firewalk &
-      - name: Test SPM
-        run: swift test -c debug | ${{ matrix.outputFilter }}
-  Linux:
-    name: Linux
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - image: swift:5.8-focal
-          - image: swift:5.8-jammy
-          - image: swift:5.8-centos7
-          - image: swift:5.8-amazonlinux2
-          - image: swift:5.8-rhel-ubi9
-          - image: swift:5.9-focal
-          - image: swift:5.9-jammy
-          - image: swift:5.9-centos7
-          - image: swift:5.9-amazonlinux2
-          - image: swift:5.9-rhel-ubi9
-          - image: swiftlang/swift:nightly-focal
-          - image: swiftlang/swift:nightly-jammy
-          - image: swiftlang/swift:nightly-amazonlinux2
-    container:
-      image: ${{ matrix.image }}
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-      - name: ${{ matrix.image }}
-        run: swift build --build-tests -c debug
-  Android:
-    name: Android
-    uses: hggz/swift-android-sdk/.github/workflows/sdks.yml@ci
-    strategy:
-      fail-fast: false
-    with:
-      target-repo: ${{ github.repository }}
-      checkout-hash: ${{ github.sha }}
-  Windows:
-    name: ${{ matrix.name }}
-    runs-on: windows-latest
-    timeout-minutes: 10
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - branch: swift-5.8-release
-            tag: 5.8-RELEASE
-            name: Windows Swift 5.8
-          - branch: swift-5.9-release
-            tag: 5.9-RELEASE
-            name: Windows Swift 5.9
-          - branch: swift-5.10-release
-            tag: 5.10-RELEASE
-            name: Windows Swift 5.10
-    steps:
-      - name: Setup
-        uses: compnerd/gha-setup-swift@main
-        with:
-          branch: ${{ matrix.branch }}
-          tag: ${{ matrix.tag }}
-      - name: Clone
-        uses: actions/checkout@v4
-      - name: SPM ${{ matrix.name }}
+      - name: Swift Package Test
         run: |
-          swift build --build-tests -c debug -Xlinker /INCREMENTAL:NO -v
-  CodeQL:
-    name: Analyze with CodeQL
-    runs-on: macOS-13
+          set -o pipefail
+          swift build
+          swift test
+
+  example-app:
+    name: Example App - ${{ matrix.name }}
+    runs-on: ${{ matrix.runsOn }}
     env:
-      DEVELOPER_DIR: "/Applications/Xcode_14.3.1.app/Contents/Developer"
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_16.3"
+            runsOn: macos-latest
+            name: "iOS Simulator"
+            destination: "platform=iOS Simulator,name=iPhone 15 Pro"
+          - xcode: "Xcode_15.4"
+            runsOn: macos-14
+            name: "iOS Simulator"
+            destination: "platform=iOS Simulator,name=iPhone 15 Pro"
     steps:
-      - name: Clone
-        uses: actions/checkout@v4
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: swift
-      - name: Build macOS
-        run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild -project "Alamofire.xcodeproj" -scheme "Alamofire macOS" -destination "platform=macOS" clean build | xcpretty
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-        with:
-          category: "/language:swift"
+      - uses: actions/checkout@v4
+      - name: Build Example App
+        run: |
+          set -o pipefail
+          cd Example
+          xcodebuild -project Example.xcodeproj -scheme Example -destination "${{ matrix.destination }}" clean build
+

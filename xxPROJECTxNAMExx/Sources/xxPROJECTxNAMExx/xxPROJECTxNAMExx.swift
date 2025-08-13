@@ -7,44 +7,22 @@
 //
 
 import Foundation
-import UIKit
 
-@IBDesignable
-public class xxPROJECTxNAMExx: UIView {
-    let name = "xxPROJECTxNAMExx loaded"
+/// A simple Swift module for demonstrating the template
+public struct xxPROJECTxNAMExx {
+    /// The name of the module
+    public static let name = "xxPROJECTxNAMExx"
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
+    /// A simple greeting function
+    /// - Parameter name: The name to greet
+    /// - Returns: A greeting message
+    public static func greet(_ name: String = "World") -> String {
+        return "Hello, \(name)! This is \(self.name)."
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    func setup() {
-        backgroundColor = .lightGray
-        self.translatesAutoresizingMaskIntoConstraints = false
-        
-        let image = UIImage(data: whiteKing)
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(imageView)
-        
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
-
-        let label = UILabel()
-        label.text = name
-        label.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(label)
-        self.addConstraint(NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
-        self.addConstraint(NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0))
-
-        self.layoutIfNeeded()
+    /// Get the white king character
+    /// - Returns: The white king Unicode character
+    public static func whiteKing() -> String {
+        return "♔"
     }
 }

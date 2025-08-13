@@ -8,20 +8,22 @@
 import SwiftUI
 import xxPROJECTxNAMExx
 
-struct SwiftUIxxPROJECTxNAMExx: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return xxPROJECTxNAMExx()
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {
-    }
-}
-
 struct ContentView: View {
     var body: some View {
-        VStack(alignment: .center) {
-            SwiftUIxxPROJECTxNAMExx()
+        VStack(alignment: .center, spacing: 20) {
+            Text(xxPROJECTxNAMExx.whiteKing())
+                .font(.system(size: 120))
+            
+            Text(xxPROJECTxNAMExx.greet("SwiftUI"))
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            Text("Module: \(xxPROJECTxNAMExx.name)")
+                .font(.caption)
+                .foregroundColor(.secondary)
         }
+        .padding()
     }
 }
 
