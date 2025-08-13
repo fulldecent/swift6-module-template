@@ -1,0 +1,105 @@
+name: "Swift 6 Module Template CI"
+
+on: 
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency: 
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  test-configure-script:
+    name: Test configure.swift script
+    runs-on: macos-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Test configure script with environment variables
+        env:
+          SMT_PROJECT_NAME: "TestModule"
+          SMT_ORGANIZATION_NAME: "Test Organization"
+          SMT_COM_AN_ORGANIZATION_IDENTIFIER: "com.test.organization"
+          SMT_AUTHOR_NAME: "Test Author"
+          SMT_TODAYS_DATE: "January 1, 2024"
+          SMT_TODAYS_YEAR: "2024"
+          SMT_GITHUB_USERNAME: "testuser"
+        run: |
+          ./configure.swift
+          ls -la OUTPUT/
+          
+      - name: Verify generated project structure
+        run: |
+          cd OUTPUT/TestModule
+          ls -la
+          test -f Package.swift
+          test -f README.md
+          test -f LICENSE
+          test -d Sources/TestModule
+          test -d Tests/TestModuleTests
+          test -d .github/workflows
+          
+      - name: Test generated Swift package builds
+        run: |
+          cd OUTPUT/TestModule
+          swift build
+          
+      - name: Test generated Swift package tests
+        run: |
+          cd OUTPUT/TestModule
+          swift test
+          
+      - name: Test generated Example project builds
+        run: |
+          cd OUTPUT/TestModule/Example
+          xcodebuild -project Example.xcodeproj -scheme Example -destination "platform=iOS Simulator,name=iPhone 15 Pro" clean build
+
+  validate-template-workflow:
+    name: Validate template workflow syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate workflow YAML syntax
+        run: |
+          python3 -c "
+          import yaml
+          import sys
+          try:
+              with open('xxPROJECTxNAMExx/.github/workflows/ci.yml', 'r') as f:
+                  yaml.safe_load(f)
+              print('✅ Template workflow syntax is valid')
+          except yaml.YAMLError as e:
+              print(f'❌ Template workflow syntax error: {e}')
+              sys.exit(1)
+          "
+
+  test-swift-versions:
+    name: Test Swift compatibility
+    runs-on: macos-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        swift-version: ["5.9", "5.10", "6.0"]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Test with Swift ${{ matrix.swift-version }}
+        env:
+          SMT_PROJECT_NAME: "TestModule${{ matrix.swift-version }}"
+          SMT_ORGANIZATION_NAME: "Test Organization"
+          SMT_COM_AN_ORGANIZATION_IDENTIFIER: "com.test.organization"
+          SMT_AUTHOR_NAME: "Test Author"
+          SMT_TODAYS_DATE: "January 1, 2024"
+          SMT_TODAYS_YEAR: "2024"
+          SMT_GITHUB_USERNAME: "testuser"
+        run: |
+          ./configure.swift
+          cd OUTPUT/TestModule${{ matrix.swift-version }}
+          swift build
