@@ -1,14 +1,14 @@
 name: "Swift 6 Module Template CI"
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - main
   pull_request:
     branches:
       - main
 
-concurrency: 
+concurrency:
   group: ${{ github.ref_name }}
   cancel-in-progress: true
 
@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      
+     
       - name: Test configure script with environment variables
         env:
           SMT_XXPROJECTXNAMEXX: "TestModule"
@@ -32,7 +32,7 @@ jobs:
         run: |
           ./configure.swift
           ls -la OUTPUT/
-          
+         
       - name: Verify generated project structure
         run: |
           cd OUTPUT/TestModule
@@ -43,41 +43,38 @@ jobs:
           test -d Sources/TestModule
           test -d Tests/TestModuleTests
           test -d .github/workflows
-          
+         
       - name: Upload generated project as artifact
         uses: actions/upload-artifact@v4
         with:
           name: generated-project
           path: OUTPUT/TestModule/
-
   test-generated-project:
     name: Test generated project using template workflow
     needs: test-configure-script
-    runs-on: macos-latest
+    runs-on: macos-15
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      
+     
       - name: Download generated project
         uses: actions/download-artifact@v4
         with:
           name: generated-project
           path: TestModule/
-          
-      - uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: "6.1.0"
-    
+         
+      - name: Select Xcode 16.1
+        run: sudo xcode-select -s /Applications/Xcode_16.1.app
+   
       - name: Test generated Swift package
         run: |
           cd TestModule
           swift build
           swift test
-          
+         
       - name: Test generated Example project
         run: |
           cd TestModule/Example
-          xcodebuild -project Example.xcodeproj -scheme Example -destination "platform=iOS Simulator,name=iPhone 15" clean build
-
+          xcodebuild -project Example.xcodeproj -scheme Example -destination "platform=iOS Simulator,name=iPhone 15,OS=18.1" clean build
   # delegate-to-template-workflow:
   # Don't know how to do this
