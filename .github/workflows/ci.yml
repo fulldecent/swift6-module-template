@@ -49,11 +49,26 @@ jobs:
         with:
           name: generated-project
           path: OUTPUT/TestModule/
-  test-generated-project:
-    name: Test generated project using template workflow
+  test-generated-project-swift-package:
+    name: Test generated project - ${{ matrix.name }}
     needs: test-configure-script
-    runs-on: macos-15
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_16.3"
+            runsOn: macos-latest
+            name: "macOS, Xcode 16.3, Swift 6.1"
+          - xcode: "Xcode_15.4"
+            runsOn: macos-14
+            name: "macOS 14, Xcode 15.4, Swift 5.10"
+          - xcode: "Xcode_15.2"
+            runsOn: macos-13
+            name: "macOS 13, Xcode 15.2, Swift 5.9.2"
     steps:
       - uses: actions/checkout@v4
      
@@ -63,18 +78,43 @@ jobs:
           name: generated-project
           path: TestModule/
          
-      - name: Select Xcode 16.1
-        run: sudo xcode-select -s /Applications/Xcode_16.1.app
-   
-      - name: Test generated Swift package
+      - name: Swift Package Test
         run: |
+          set -o pipefail
           cd TestModule
           swift build
           swift test
+
+  test-generated-project-example-app:
+    name: Test generated project Example App - ${{ matrix.name }}
+    needs: test-configure-script
+    runs-on: ${{ matrix.runsOn }}
+    env:
+      DEVELOPER_DIR: "/Applications/${{ matrix.xcode }}.app/Contents/Developer"
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - xcode: "Xcode_16.3"
+            runsOn: macos-latest
+            name: "iOS Simulator"
+            destination: "platform=iOS Simulator,name=iPhone 15 Pro"
+          - xcode: "Xcode_15.4"
+            runsOn: macos-14
+            name: "iOS Simulator"
+            destination: "platform=iOS Simulator,name=iPhone 15 Pro"
+    steps:
+      - uses: actions/checkout@v4
+     
+      - name: Download generated project
+        uses: actions/download-artifact@v4
+        with:
+          name: generated-project
+          path: TestModule/
          
-      - name: Test generated Example project
+      - name: Build Example App
         run: |
+          set -o pipefail
           cd TestModule/Example
-          xcodebuild -project Example.xcodeproj -scheme Example -destination "platform=iOS Simulator,name=iPhone 15,OS=18.1" clean build
-  # delegate-to-template-workflow:
-  # Don't know how to do this
+          xcodebuild -project Example.xcodeproj -scheme Example -destination "${{ matrix.destination }}" clean build
