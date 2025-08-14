@@ -59,37 +59,19 @@ jobs:
     timeout-minutes: 10
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-         
       - name: Download generated project
         uses: actions/download-artifact@v4
         with:
           name: generated-project
-          path: deployment-content/
+          path: generated/
          
-      - name: Configure Git
+      - name: Push to production branch
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-         
-      - name: Deploy to deployment branch
-        run: |
-          # Create deployment branch (or reset if exists)
-          git checkout --orphan deployment || git checkout deployment
-          
-          # Remove all existing content
-          git rm -rf . || true
-          
-          # Copy generated project content to root
-          cp -r deployment-content/* .
-          
-          # Add all files
+          cd generated
+          git init
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
           git add .
-          
-          # Create commit
-          git commit -m "Deploy generated project from commit ${{ github.sha }}"
-          
-          # Force push to deployment branch
-          git push origin deployment --force
+          git commit -m "Generated project from main commit ${{ github.sha }}"
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          git push -f origin HEAD:production
