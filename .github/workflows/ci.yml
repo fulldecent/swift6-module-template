@@ -52,6 +52,7 @@ jobs:
         with:
           name: generated-project
           path: OUTPUT/TestModule/
+          include-hidden-files: true
   deploy-generated-project:
     name: Deploy generated project to test branch
     needs: test-configure-script
