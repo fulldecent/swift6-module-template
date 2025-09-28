@@ -33,7 +33,7 @@ During the steps of this recipe we enter specific values where needed. These are
 
 Complete all these instructions on the same calendar day.
 
-Use Xcode version 16.4 (16F6). *This is the latest publicly released or Gold Master version.*
+Use Xcode version 26.0.1 (17A400). *This is the latest publicly released or Gold Master version.*
 
 A previous version of this recipe is also demonstrated in a YouTube flyover at <https://youtu.be/ksYXtNn8lhE> (15 minutes).
 
@@ -55,6 +55,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    cd ~/Desktop/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/xxPROJECTxNAMExx.swift' -o xxPROJECTxNAMExx.swift
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/White%20King.swift' -o White\ King.swift
+   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/refs/heads/main/xxPROJECTxNAMExx/Tests/xxPROJECTxNAMExxTests/xxPROJECTxNAMExxTests.swift' -o ../../Tests/xxPROJECTxNAMExxTests/xxPROJECTxNAMExxTests.swift
    ```
 
 2. Quit Xcode
@@ -88,11 +89,8 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
 ### IV. Use the directory layout structure like Alamofire
 
 1. *Move Example source code to a folder named "Sources"*
-   :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/swiftlang/swift-package-manager/blob/451196234d81f82a147293105fd4467cdd69b6ac/Sources/Workspace/InitPackage.swift#L570C48-L570C50).
-
+   :information_source: The Alamofire project uses [the folder name "Source"](https://github.com/Alamofire/Alamofire/tree/master/Example/Source) but we choose "Sources" here to be consistent with [the default of Swift Package Manager](https://github.com/swiftlang/swift-package-manager/blob/e1183984b08c76480406e134a6ec116888cf2e67/Sources/Workspace/InitPackage.swift#L596).
    1. Open the file Example.xcodeproj in Xcode (it's on your desktop, in the xxPROJECTxNAMExx > Example folder)
-
-      :information_source: You will see "Cannot preview in this file", but we resolve this in the step "Make your Example application depend on your module" below.
 
    2. Show the Project navigator on the left (folder icon)
 
@@ -109,7 +107,9 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Example/Sources/ContentView.swift' -o ContentView.swift
    ```
 
-### VI. Make your Example application depend on your module
+   :information_source: You will see "Module compiled with Swift 6.1.2 cannot be imported by the Swift 6.2 compiler", but we will resolve this in the step "make your example application depend on your module" below.
+
+### VI. Make your example application depend on your module
 
 1. Open Example.xcodeproj in Xcode
 2. In Xcode, choose File > Add Package Dependencies...
@@ -117,11 +117,10 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    2. Select the folder `xxPROJECTxNAMExx` on the desktop (don't double click it)
    3. Click "Add Package"
    4. In the choose package products, set the "add to target" to "Example", and click "Add Package"
-3. In Xcode, choose File > Packages > Reset Package Caches
 
 ### VII. Add additional project management files to the module
 
-*These files represent best practices which every Swift module author should adopt for published code.*
+*These files represent best practices which every open source Swift module author should adopt for published code.*
 
 1. Use Terminal.app to add additional files to the project
 
@@ -158,6 +157,8 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
 
 3. Choose Product > Run
    :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
+
+   :information_source: You may see a nag screen in your app about Apple Intelligence. This advertisement is installed by Apple and Apple prevents you from removing it.
 
 4. *Compare with the distributed Swift 6 Module Template repository*
 

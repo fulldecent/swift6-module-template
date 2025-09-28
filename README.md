@@ -2,9 +2,9 @@
 
 Use this template as a starting point for any Swift 6 module that you want other people to include in their projects.
 
-**STATUS: This template is ready and works in production code, compatible with Xcode version 16.3 (16E140)**
+:white_check_mark: STATUS: This template is ready and works in production code. See [releases](https://github.com/fulldecent/swift6-module-template/releases) to confirm we support the latest Xcode version.
 
-![Swift 5 Module directory layout](https://github.com/fulldecent/swift5-module-template/assets/382183/1a7965f0-af84-4d00-9bb6-97db76e6e715)
+![Swift 6 directory layout](https://github.com/fulldecent/swift5-module-template/assets/382183/1a7965f0-af84-4d00-9bb6-97db76e6e715)
 
 ## Features
 
