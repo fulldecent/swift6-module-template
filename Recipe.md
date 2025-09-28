@@ -137,7 +137,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
 
 ### VIII. Remove identifying parts of your project
 
-*This step allows everybody to achieve byte-for-byte consistency with [the published Swift 6 Module Template](https://github.com/fulldecent/swift5-module-template/tree/main/xxPROJECTxNAMExx) but otherwise provides no value to you.*
+*This step allows everybody to achieve byte-for-byte consistency with [the published Swift 6 Module Template](https://github.com/fulldecent/swift6-module-template/tree/main/xxPROJECTxNAMExx) but otherwise provides no value to you.*
 
 1. Use Terminal.app to find and replace all occurrences of hard-coded strings with template variables
 
