@@ -22,7 +22,7 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
      
       - name: Test configure script with environment variables
         env:
@@ -54,26 +54,3 @@ jobs:
           name: generated-project
           path: OUTPUT/TestModule/
           include-hidden-files: true
-  deploy-generated-project:
-    name: Deploy generated project to test branch
-    needs: test-configure-script
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    steps:
-      - name: Download generated project
-        uses: actions/download-artifact@v4
-        with:
-          name: generated-project
-          path: generated/
-         
-      - name: Push to production branch
-        run: |
-          cd generated
-          git init
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add .
-          git commit -m "Generated project from main commit ${{ github.sha }}"
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git push -f origin HEAD:production
