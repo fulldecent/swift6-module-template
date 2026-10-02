@@ -109,12 +109,26 @@ substitutionPairs = substitutionPairs.map { pair in
 }
 
 let fileManager = FileManager.default
-fileManager.changeCurrentDirectoryPath(fileManager.currentDirectoryPath)
+let sourceRoot = fileManager.currentDirectoryPath
 
-// Create OUTPUT folder and copy your template folder
-try! fileManager.createDirectory(
-  atPath: "OUTPUT", withIntermediateDirectories: true, attributes: nil)
-try! fileManager.copyItem(atPath: "xxPROJECTxNAMExx", toPath: "OUTPUT/xxPROJECTxNAMExx")
+// Run this script from the repository root. It copies that directory.
+// .git and OUTPUT are not part of the module. .build is a local compile cache.
+let skipNames: Set<String> = [".", "..", ".git", ".build", "OUTPUT"]
+let destinationRoot = "OUTPUT/xxPROJECTxNAMExx"
+try! fileManager.createDirectory(atPath: "OUTPUT", withIntermediateDirectories: true, attributes: nil)
+if fileManager.fileExists(atPath: destinationRoot) {
+  try! fileManager.removeItem(atPath: destinationRoot)
+}
+try! fileManager.createDirectory(atPath: destinationRoot, withIntermediateDirectories: true, attributes: nil)
+for name in try! fileManager.contentsOfDirectory(atPath: sourceRoot) {
+  if skipNames.contains(name) {
+    continue
+  }
+  try! fileManager.copyItem(
+    atPath: sourceRoot + "/" + name,
+    toPath: destinationRoot + "/" + name
+  )
+}
 
 // Move into OUTPUT and do variable replacement
 fileManager.changeCurrentDirectoryPath("OUTPUT")

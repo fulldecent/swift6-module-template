@@ -1,91 +1,81 @@
-# Swift 6 Module Template
+# Swift6-module-template
+[![Test](https://github.com/__GITHUB_USERNAME__/xxPROJECTxNAMExx/actions/workflows/swiftlang-workflows.yml/badge.svg?branch=main)](https://github.com/__GITHUB_USERNAME__/xxPROJECTxNAMExx/actions/workflows/swiftlang-workflows.yml)
 
-Recipe: [![TestModule CI](https://github.com/fulldecent/swift6-module-template/actions/workflows/ci.yml/badge.svg)](https://github.com/fulldecent/swift6-module-template/actions/workflows/ci.yml)
+> [!IMPORTANT]
+>
+> Use `swift TEMPLATE/configure.swift` to interactively your own project name and other details to this template.
+>
+> Alternatively, use the [RECIPE](TEMPLATE/RECIPE.md) for a walkthrough of starting with "Open Xcode" and ending with the exact contents of this repo.
+>
+> Replace this top heading with your own project name and status badge, and replace the rest of this section with what the project does, and show it (e.g. with screenshots).
+>
 
-Generated project: [![Swiftlang workflows](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml/badge.svg?branch=production-test)](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml)
+This is an opinionated template for every Swift module, that provides:
 
-Use this template as a starting point for any Swift 6 module that you want other people to include in their projects.
-
-:white_check_mark: STATUS: This template is ready and works in production code. See [releases](https://github.com/fulldecent/swift6-module-template/releases) to confirm we support the latest Xcode version.
+- An explicit license (MIT, at [LICENSE](https://github.com/fulldecent/project-template/blob/main/LICENSE))
+- A [.gitignore](https://github.com/fulldecent/project-template/blob/main/.gitignore) with modern defaults
+- Continuous integration to [perform testing](.github/swiftlang-workflows.yml)
+- An example app that is wired to the Swift module
 
 ![Swift 6 directory layout](https://github.com/fulldecent/swift6-module-template/assets/382183/1a7965f0-af84-4d00-9bb6-97db76e6e715)
 
-## Features
+## What this project does
 
-Your new Swift module will immediately have working, compilable code, and implement these best practices:
+xxPROJECTxNAMExx is a reusable Swift 6 module. It provides:
 
-- Ability to be used from Swift Package Manager
-- Clean folder structure
-- MIT license
-- Testing as a standard
-- Turnkey access to GitHub Actions testing recommended by the Swift project
-- Semantic versioning and a CHANGELOG
-- Included example/demo app using SwiftUI
-- Use a Xcode project to manage your code
+- A Swift Package Manager library and tests
+- An example SwiftUI app in an Xcode project
+- Semantic versioning, a [CHANGELOG](CHANGELOG.md), and an MIT license
+- GitHub Actions testing with the workflows published for Swift packages
+- [EditorConfig](.editorconfig), a [.gitignore](.gitignore), and [enforced formatting](.github/workflows/lint.yml)
 
-## How to use this
+The example app shows a white king (♔).
 
-Clone or [download a release](https://github.com/fulldecent/swift6-module-template/releases) and run the  `./configure.swift` program. It will ask you some questions and generate a project.
+## Example
 
-You then add all the interesting features you want your module to have.
+Clone the repo and open [Example/Example.xcodeproj](Example/Example.xcodeproj). Run the Example scheme on a recent iPhone simulator.
 
-### Automating the configure script
+## Installation
 
-To skip interactive prompts in the `./configure.swift` script, use these environment variables:
+Add this package with Swift Package Manager. In Xcode that is File > Add Package Dependencies...
 
-| Template variable                | Environment variable                     |
-| -------------------------------- | ---------------------------------------- |
-| `__PROJECT_NAME__`               | `SMT_PROJECT_NAME`                       |
-| `__ORGANIZATION NAME__`          | `SMT_ORGANIZATION_NAME`                  |
-| `com.AN.ORGANIZATION.IDENTIFIER` | `SMT_COM_AN_ORGANIZATION_IDENTIFIER`     |
-| `__AUTHOR NAME__`                | `SMT_AUTHOR_NAME`                        |
-| `__TODAYS_DATE__`                | `SMT_TODAYS_DATE`                        |
-| `__TODAYS_YEAR__`                | `SMT_TODAYS_YEAR`                        |
-| `__GITHUB_USERNAME__`            | `SMT_GITHUB_USERNAME`                    |
+## Development
 
-For example, you may use: `export SMT_ORGANIZATION_NAME='Awesome Org'` before running `./configure.swift`.
-
-## How it works
-
-```mermaid
-graph LR
-    subgraph Contributors to this project
-    X[Use Xcode] --> R[Update Recipe.md]
-    R --> T[Update template]
-    end
-    T --> C
-    subgraph End users of this project
-    C[Run ./configure.swift] --> M[Use your own module]
-    end
-```
-
-## Deployment test
-
-After updating the recipe and template xxPROJECTxNAMExx, also validate the GitHub Actions template for the inside project.
-
-:information_source: This process is a workaround for a GitHub Actions system restriction that prevents one GitHub Action (the one for this template repository) from editing and kicking off another GitHub Action (the one inside the new xxPROJECTxNAMExx to test.
+Format the files the lint workflow checks. These commands use `npx` at `@latest` so the local write matches [.github/workflows/lint.yml](.github/workflows/lint.yml). A pinned package would let the local write and the CI check disagree.
 
 ```sh
-git clone git@github.com:fulldecent/swift6-module-template.git ~/Desktop/swift6-module-template
-cd ~/Desktop/swift6-module-template
-export SMT_XXPROJECTXNAMEXX="TestModule"
-export SMT_ORGANIZATION_NAME="Test Organization"
-export SMT_COM_AN_ORGANIZATION_IDENTIFIER="com.test.organization"
-export SMT_AUTHOR_NAME="Test Author"
-export SMT_TODAYS_DATE="January 1, 2024"
-export SMT_TODAYS_YEAR="2024"
-export SMT_GITHUB_USERNAME="testuser"
-./configure.swift
-# ℹ️ Now OUTPUT/TestModule is is a complete project you could publish
-cp -r OUTPUT/TestModule ~/Desktop/swift6-module-template-production-test
-cd ~/Desktop/swift6-module-template-production-test
-git init
-git remote add origin git@github.com:fulldecent/swift6-module-template.git
-git add .
-git commit -m "Initial commit for production-test branch with TestModule contents"
-git push --force origin HEAD:production-test
+npx prettier@latest --write .
+npx markdownlint-cli@latest --fix "**/*.md" --ignore node_modules
 ```
 
-## Contributing
+### Testing
 
-See the file [Recipe.md](Recipe.md) for the complete steps (e.g. Open Xcode, make new project, click here, type that, …) of how we made the template.
+Run the test suite with:
+
+```sh
+xcrun swift test
+```
+
+## Maintenance and dependency updates
+
+Do this every quarter or so and please send a PR here if you see updates available:
+
+1. Identify external Actions in [.github/workflows](./.github/workflows) scripts and look for available new versions. Review and then update to the new version if it is safe. GitHub-supported Actions (i.e. under the actions/ organization) may require only cursory review.
+1. Review the Swift versions excluded in [.github/workflows/swiftlang-workflows.yml](.github/workflows/swiftlang-workflows.yml).
+1. Review the [RECIPE](TEMPLATE/RECIPE.md) and confirm that the current latest pubished version of Xcode equals the version asserted at the top of this file. If not, redo the recipe.
+
+## References
+
+> [!IMPORTANT]
+>
+> We use an MIT license for this template. You should carefully consider which license to apply to your own project.
+>
+> If your project materially relied on external sources to make some decisions, cite them here.
+>
+> We cite a text formatting policy below. This applies to our README above as well as our workflow rules and other configuration files. If you have a different policy, then please implement it throughout.
+
+1. We use title case for titles and proper nouns; not for headings and things. This includes our README above as well as our workflow rules and other configuration files. If you have a different policy, then please implement it throughout.
+1. We use an MIT license for this template. You should carefully consider which license to apply to your own project.
+1. Swift ignore rules are inlined from [Swift.gitignore](https://github.com/github/gitignore/blob/main/Swift.gitignore). The macOS and secret rules above them come from [project-template](https://github.com/fulldecent/project-template).
+1. This project is built based on [best practices documented in Swift 6 Module Template](https://github.com/fulldecent/swift6-module-template).
+1. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release 1.0.0.

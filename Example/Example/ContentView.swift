@@ -6,20 +6,20 @@
 //
 
 import SwiftUI
-import xxPROJECTxNAMExx
+import swift6_module_template
 
 struct ContentView: View {
   var body: some View {
     VStack(alignment: .center, spacing: 20) {
-      Text(xxPROJECTxNAMExx.whiteKing())
+      Text(swift6_module_template.whiteKing())
         .font(.system(size: 120))
 
-      Text(xxPROJECTxNAMExx.greet("SwiftUI"))
+      Text(swift6_module_template.greet("SwiftUI"))
         .font(.title2)
         .multilineTextAlignment(.center)
         .padding()
 
-      Text("Module: \(xxPROJECTxNAMExx.name)")
+      Text("Module: \(swift6_module_template.name)")
         .font(.caption)
         .foregroundColor(.secondary)
     }

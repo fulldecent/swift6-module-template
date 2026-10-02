@@ -2,10 +2,6 @@
 
 All contributors are welcome. Please use issues and pull requests to contribute to the project. And update [CHANGELOG.md](CHANGELOG.md) when committing.
 
-## Making a change
-
-When you commit a change, please add a note to [CHANGELOG.md](CHANGELOG.md).
-
 ## Release process
 
 1. Confirm the build is [passing in GitHub Actions](https://github.com/__GITHUB_USERNAME__/xxPROJECTxNAMExx/actions)

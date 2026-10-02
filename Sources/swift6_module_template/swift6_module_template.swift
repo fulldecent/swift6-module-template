@@ -9,9 +9,9 @@
 import Foundation
 
 /// A simple Swift module for demonstrating the template
-public struct xxPROJECTxNAMExx {
+public struct swift6_module_template {
   /// The name of the module
-  public static let name = "xxPROJECTxNAMExx"
+  public static let name = "swift6_module_template"
 
   /// A simple greeting function
   /// - Parameter name: The name to greet
