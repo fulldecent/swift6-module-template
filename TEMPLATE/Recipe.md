@@ -101,7 +101,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/.gitignore' -o .gitignore
    mkdir -p .github/workflows
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/.github/workflows/swiftlang-workflows.yml' -o .github/workflows/swiftlang-workflows.yml
-   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/LICENSE' -o LICENSE
+   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/LICENSE.md' -o LICENSE.md
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/README.md' -o README.md
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/CONTRIBUTING.md' -o CONTRIBUTING.md
    ```
