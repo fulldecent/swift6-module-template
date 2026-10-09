@@ -11,10 +11,11 @@ jobs:
     name: Test
     uses: swiftlang/github-workflows/.github/workflows/swift_package_test.yml@main
     with:
-      linux_exclude_swift_versions: '[{"swift_version": "5.8"}, {"swift_version": "5.9"}, {"swift_version": "5.10"}, {"swift_version": "6.0"}, {"swift_version": "6.1"}]'
-      windows_exclude_swift_versions: '[{"swift_version": "5.9"}, {"swift_version": "5.10"}]'
-      macos_exclude_xcode_versions: '[{"xcode_version": "26.0"}]'
-      enable_macos_checks: true
+      # Package.swift declares swift-tools-version 6.4. Older toolchains cannot load the package.
+      linux_swift_versions: '["6.4", "nightly-main", "nightly-6.4.x"]'
+      windows_swift_versions: '["6.4", "nightly-main", "nightly-6.4.x"]'
+      # macOS jobs in that workflow run on Swift.org's self-hosted fleet.
+      enable_macos_checks: false
       enable_wasm_sdk_build: true
 
   embedded-swift:
@@ -26,10 +27,27 @@ jobs:
       enable_windows_checks: false
       enable_wasm_sdk_build: false
       enable_embedded_wasm_sdk_build: true
-      swift_flags: --target "xxPROJECTxNAMExx"
+      # The Swift target name. xxPROJECTxNAMExx is the project name, not this target.
+      swift_flags: --target "swift6_module_template"
 
   soundness:
     name: Soundness
     uses: swiftlang/github-workflows/.github/workflows/soundness.yml@main
     with:
-      license_header_check_project_name: "xxPROJECTxNAMExx"
+      # The soundness script expects the Apache header used by Swift.org. This template is MIT.
+      license_header_check_enabled: false
+      api_breakage_check_container_image: swift:6.4-jammy
+      format_check_container_image: swift:6.4-jammy
+      docs_check_container_image: swift:6.4-jammy
+
+  # GitHub-hosted. macos-26 stops at Xcode 26, which cannot load swift-tools-version 6.4.
+  # https://github.blog/changelog/2026-07-16-xcode-27-runner-image-now-in-public-preview/
+  macos:
+    name: Test on macOS
+    runs-on: xcode-27
+    steps:
+      - name: Check out this commit
+        uses: actions/checkout@v7
+
+      - name: Test
+        run: xcrun swift test

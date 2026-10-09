@@ -6,9 +6,8 @@
 //  Copyright © __TODAYS_YEAR__ __ORGANIZATION_NAME__. All rights reserved.
 //
 
-import Foundation
-
 /// A simple Swift module for demonstrating the template
+// swift-format-ignore: TypeNamesShouldBeCapitalized
 public struct swift6_module_template {
   /// The name of the module
   public static let name = "swift6_module_template"

@@ -1,0 +1,7 @@
+{
+  "release-type": "simple",
+  "include-component-in-tag": false,
+  "packages": {
+    ".": {}
+  }
+}

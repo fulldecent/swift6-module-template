@@ -1,5 +1,4 @@
 #!/usr/bin/env swift
-
 import Foundation
 
 func promptForVariable(variable: String, defaultValue: String) -> String {
@@ -59,7 +58,7 @@ func replaceVariablesInFileNames(substitutions: [(from: String, to: String)]) {
 }
 
 struct Env {
-  static let ENV_VARIABLE_PREFIX = "SMT"
+  static let envVariablePrefix = "SMT"
 
   static func fetchSMT(
     templateVarName: String, defaultValue: String, prompt: (String, String) -> String
@@ -72,7 +71,7 @@ struct Env {
   }
 
   static func nameFor(templateVarName: String) -> String {
-    return "\(ENV_VARIABLE_PREFIX)_\(sanitize(templateVarName: templateVarName))"
+    return "\(envVariablePrefix)_\(sanitize(templateVarName: templateVarName))"
   }
 
   private static func sanitize(templateVarName: String) -> String {
@@ -115,11 +114,13 @@ let sourceRoot = fileManager.currentDirectoryPath
 // .git and OUTPUT are not part of the module. .build is a local compile cache.
 let skipNames: Set<String> = [".", "..", ".git", ".build", "OUTPUT"]
 let destinationRoot = "OUTPUT/xxPROJECTxNAMExx"
-try! fileManager.createDirectory(atPath: "OUTPUT", withIntermediateDirectories: true, attributes: nil)
+try! fileManager.createDirectory(
+  atPath: "OUTPUT", withIntermediateDirectories: true, attributes: nil)
 if fileManager.fileExists(atPath: destinationRoot) {
   try! fileManager.removeItem(atPath: destinationRoot)
 }
-try! fileManager.createDirectory(atPath: destinationRoot, withIntermediateDirectories: true, attributes: nil)
+try! fileManager.createDirectory(
+  atPath: destinationRoot, withIntermediateDirectories: true, attributes: nil)
 for name in try! fileManager.contentsOfDirectory(atPath: sourceRoot) {
   if skipNames.contains(name) {
     continue

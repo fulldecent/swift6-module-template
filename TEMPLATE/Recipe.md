@@ -36,7 +36,7 @@ During the steps of this recipe we enter specific values where needed. These are
 
 ## Steps
 
-Open Xcode version 27.0 (27A266a). *This is the latest publicly released or Gold Master version.*
+Open Xcode version 27.0 (27A266a). *This is the latest publicly released version.*
 
 A previous version of this recipe is also demonstrated in a YouTube flyover at <https://youtu.be/ksYXtNn8lhE> (15 minutes).
 
