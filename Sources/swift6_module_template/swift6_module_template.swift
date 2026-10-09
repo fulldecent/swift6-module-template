@@ -19,9 +19,9 @@ public struct swift6_module_template {
     return "Hello, \(name)! This is \(self.name)."
   }
 
-  /// Get the white king character
-  /// - Returns: The white king Unicode character
-  public static func whiteKing() -> String {
-    return "♔"
+  /// Get the white pawn character
+  /// - Returns: The white pawn Unicode character
+  public static func whitePawn() -> String {
+    return "♙"
   }
 }

@@ -57,7 +57,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    ```sh
    cd ~/Desktop/swift6-module-template/Sources/swift6_module_template
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/xxPROJECTxNAMExx.swift' -o swift6_module_template.swift
-   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/White%20King.swift' -o White\ King.swift
+   curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/main/xxPROJECTxNAMExx/Sources/xxPROJECTxNAMExx/White%20Pawn.swift' -o White\ Pawn.swift
    curl 'https://raw.githubusercontent.com/fulldecent/swift6-module-template/refs/heads/main/xxPROJECTxNAMExx/Tests/xxPROJECTxNAMExxTests/xxPROJECTxNAMExxTests.swift' -o ../../Tests/swift6_module_templateTests/swift6_module_templateTests.swift
    ```
 
@@ -127,7 +127,7 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
 2. Use the scheme navigator to select Example and the latest iPhone version simulator
 
 3. Choose Product > Run
-   :white_check_mark: You should see a big white king (♔) after a few moments. That means it worked!
+   :white_check_mark: You should see a big white pawn (♙) after a few moments. That means it worked!
 
 4. *Compare with the distributed Swift 6 Module Template repository*
 

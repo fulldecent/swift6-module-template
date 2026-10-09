@@ -8,9 +8,9 @@ import Testing
   #expect(greeting.contains(swift6_module_template.name))
 }
 
-@Test func testWhiteKing() async throws {
-  let king = swift6_module_template.whiteKing()
-  #expect(king == "♔")
+@Test func testWhitePawn() async throws {
+  let pawn = swift6_module_template.whitePawn()
+  #expect(pawn == "♙")
 }
 
 @Test func testModuleName() async throws {

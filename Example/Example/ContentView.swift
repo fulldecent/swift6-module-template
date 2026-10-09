@@ -11,7 +11,7 @@ import swift6_module_template
 struct ContentView: View {
   var body: some View {
     VStack(alignment: .center, spacing: 20) {
-      Text(swift6_module_template.whiteKing())
+      Text(swift6_module_template.whitePawn())
         .font(.system(size: 120))
 
       Text(swift6_module_template.greet("SwiftUI"))

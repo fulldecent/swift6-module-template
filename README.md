@@ -1,29 +1,37 @@
-# Swift6-module-template
-[![Test](https://github.com/__GITHUB_USERNAME__/xxPROJECTxNAMExx/actions/workflows/swiftlang-workflows.yml/badge.svg?branch=main)](https://github.com/__GITHUB_USERNAME__/xxPROJECTxNAMExx/actions/workflows/swiftlang-workflows.yml)
+# White Pawn
 
-> [!IMPORTANT]
+> [!TIP]
+> This template is a starting point you can use for every Swift module. We offer:
 >
-> Use `swift TEMPLATE/configure.swift` to interactively your own project name and other details to this template.
+> - A Swift package, tests, and an example app
+> - Continuous integration with the [Swift package workflows](.github/workflows/swiftlang-workflows.yml)
+> - Automated releases with [Release Please](.github/workflows/release.yml) and SLSA provenance attestation
+> - An MIT license and a [.gitignore](.gitignore)
 >
-> Alternatively, use the [RECIPE](TEMPLATE/RECIPE.md) for a walkthrough of starting with "Open Xcode" and ending with the exact contents of this repo.
+> Run `swift TEMPLATE/configure.swift` to fill in the project name and the other placeholders. [TEMPLATE/Recipe.md](TEMPLATE/Recipe.md) walks through the same result starting from Xcode.
 >
-> Replace this top heading with your own project name and status badge, and replace the rest of this section with what the project does, and show it (e.g. with screenshots).
+> What is in-scope for this template?
 >
-> Set [`.release-please-manifest.json`](.release-please-manifest.json) to `0.0.0`. This repository's manifest is `16.4.0` because the last GitHub release is tag [16.4](https://github.com/fulldecent/swift6-module-template/releases/tag/16.4), and Release Please needs a SemVer version to bump.
+> We the people who publish reusable Swift modules, in order to hand every module a tested package, an example app, and a release, maintain this starting point.
 >
+> Swift 6 Module Template must remain broad—addressing many kinds of modules. Every module deserves a README, an example, and a clear rule on formatting, this is why we include continuous integration.
+>
+> We do not specify that GitHub and GitHub Actions are the only way to host projects, others may consider our GitHub-specific notes as a starting point guide for implementing outside of GitHub.
+>
+> And now below is the template, shown for a specific hypothetical project, enjoy!
 
-This is an opinionated template for every Swift module, that provides:
+[![Test](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml/badge.svg?branch=main)](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml)
 
-- An explicit license (MIT, at [LICENSE](https://github.com/fulldecent/project-template/blob/main/LICENSE))
-- A [.gitignore](https://github.com/fulldecent/project-template/blob/main/.gitignore) with modern defaults
-- Continuous integration to [perform testing](.github/swiftlang-workflows.yml)
-- An example app that is wired to the Swift module
+White Pawn shows a white chess pawn (♙).
 
 ![Swift 6 directory layout](https://github.com/fulldecent/swift6-module-template/assets/382183/1a7965f0-af84-4d00-9bb6-97db76e6e715)
 
+> [!NOTE]
+> Replace the project name, description, demonstration and badge URLs with your own. Show what your project does before asking people to read further.
+
 ## What this project does
 
-xxPROJECTxNAMExx is a reusable Swift 6 module. It provides:
+White Pawn is a reusable Swift 6 module. It provides:
 
 - A Swift Package Manager library and tests
 - An example SwiftUI app in an Xcode project
@@ -31,7 +39,7 @@ xxPROJECTxNAMExx is a reusable Swift 6 module. It provides:
 - GitHub Actions testing with the workflows published for Swift packages
 - [EditorConfig](.editorconfig), a [.gitignore](.gitignore), and [enforced formatting](.github/workflows/lint.yml)
 
-The example app shows a white king (♔).
+The example app shows a white pawn (♙).
 
 ## Example
 
@@ -68,6 +76,8 @@ The [release workflow](.github/workflows/release.yml) uses [Release Please](http
 
 > [!NOTE]
 > In your GitHub repository settings, under Actions, General, Workflow permissions, select read and write permissions and check "Allow GitHub Actions to create and approve pull requests". Under General, Releases, enable release immutability. Attestations are available for public repositories; private repositories require GitHub Enterprise Cloud.
+>
+> A repository created from this template should set [`.release-please-manifest.json`](.release-please-manifest.json) to `0.0.0`. This repository's manifest is `16.5.0`, the same version as tag [v16.5.0](https://github.com/fulldecent/swift6-module-template/releases/tag/v16.5.0). Release Please needs a SemVer version to bump.
 
 ## Maintenance and dependency updates
 
