@@ -74,7 +74,7 @@ The [release workflow](.github/workflows/release.yml) uses [Release Please](http
 Do this every quarter or so and please send a PR here if you see updates available:
 
 1. Identify external Actions in [.github/workflows](./.github/workflows) scripts and look for available new versions. Review and then update to the new version if it is safe. GitHub-supported Actions (i.e. under the actions/ organization) may require only cursory review.
-1. Review the Swift versions excluded in [.github/workflows/swiftlang-workflows.yml](.github/workflows/swiftlang-workflows.yml).
+1. Review the Swift versions in [.github/workflows/swiftlang-workflows.yml](.github/workflows/swiftlang-workflows.yml). The package requires the tools version in [Package.swift](Package.swift).
 1. Review the [RECIPE](TEMPLATE/RECIPE.md) and confirm that the current latest pubished version of Xcode equals the version asserted at the top of this file. If not, redo the recipe.
 
 ## References
