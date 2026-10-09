@@ -20,7 +20,7 @@
 >
 > And now below is the template, shown for a specific hypothetical project, enjoy!
 
-[![Test](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml/badge.svg)](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml)
+[![Lint](https://github.com/fulldecent/swift6-module-template/actions/workflows/lint.yml/badge.svg)](https://github.com/fulldecent/swift6-module-template/actions/workflows/lint.yml) [![Build and test](https://github.com/fulldecent/swift6-module-template/actions/workflows/build-test.yml/badge.svg)](https://github.com/fulldecent/swift6-module-template/actions/workflows/build-test.yml) [![Test](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml/badge.svg)](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml)
 
 White Pawn shows a white chess pawn (♙).
 
@@ -57,6 +57,22 @@ Format the files the lint workflow checks. These commands use `npx` at `@latest`
 npx prettier@latest --write .
 npx markdownlint-cli@latest --fix "**/*.md" --ignore node_modules
 ```
+
+## Usage
+
+Add the package to an app and call the library. The example app in `Example/` shows a white chess pawn (♙).
+
+> [!NOTE]
+> Explain how to use your project. Or link to the canonical usage instructions.
+
+## Project scope
+
+We are people who publish reusable Swift modules. White Pawn is one module: a Swift package, tests, and an example app.
+
+We specifically will not add a second product, a server, or a package registry release. Swift Package Manager uses the git tag.
+
+> [!NOTE]
+> Introduce your community, explain what is in scope, and say what is out of scope.
 
 ### Testing
 
@@ -112,12 +128,10 @@ Do this every quarter or so and please send a PR here if you see updates availab
 > We use an MIT license for this template. You should carefully consider which license to apply to your own project.
 >
 > If your project materially relied on external sources to make some decisions, cite them here.
->
-> We cite a text formatting policy below. This applies to our README above as well as our workflow rules and other configuration files. If you have a different policy, then please implement it throughout.
 
-1. We use title case for titles and proper nouns; not for headings and things. This includes our README above as well as our workflow rules and other configuration files. If you have a different policy, then please implement it throughout.
+1. We use title case only for proper nouns, including the name of our project.
 1. We use an MIT license for this template. You should carefully consider which license to apply to your own project.
 1. Swift ignore rules are inlined from [Swift.gitignore](https://github.com/github/gitignore/blob/main/Swift.gitignore). The macOS and secret rules above them come from [project-template](https://github.com/fulldecent/project-template).
 1. This project is built based on [best practices documented in Swift 6 Module Template](https://github.com/fulldecent/swift6-module-template).
-1. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release 1.0.0.
-1. Releases follow the [project-template release workflow](https://github.com/fulldecent/project-template/blob/v1.3.0/.github/workflows/release.yml), release 1.3.0. The published file is the Linux static library from `swift build -c release`. project-template publishes `README.md` there, and [rust-template](https://github.com/fulldecent/rust-template) publishes its command-line binary.
+1. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release v1.3.0.
+1. Releases follow the [project-template release workflow](https://github.com/fulldecent/project-template/blob/v1.3.0/.github/workflows/release.yml), release v1.3.0. The published file is the Linux static library from `swift build -c release`. project-template publishes `README.md` there, and [rust-template](https://github.com/fulldecent/rust-template) publishes its command-line binary.

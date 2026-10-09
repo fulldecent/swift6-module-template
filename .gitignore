@@ -1,3 +1,11 @@
+# macOS
+.DS_Store
+
+# Secrets. .env.example is the committed sample.
+.env
+.env.*
+!.env.example
+
 # https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Global/Xcode.gitignore
 
 ## User settings
