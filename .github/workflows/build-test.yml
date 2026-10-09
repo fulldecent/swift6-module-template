@@ -1,0 +1,84 @@
+# Build and test
+#
+# Build, SLSA attest, and test the project.
+#
+# This workflow produces the following things which release.yml consumes:
+#   1. $.jobs.build-test (this exact job ID)
+#   2. The artifact named "build"
+#
+# The Swift version is the swift-tools-version in Package.swift.
+# swift-actions/setup-swift installs that version with Swiftly:
+# https://www.swift.org/install/linux/
+#
+# Public repositories can use attest for free. Private repos require Enterprise Cloud.
+
+name: Build and test
+
+on:
+  workflow_call:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+      artifact-metadata: write
+    steps:
+      - name: Check out this commit
+        uses: actions/checkout@v7
+
+      - name: Read the Swift tools version
+        id: tools
+        run: |
+          version=$(sed -n 's|^// swift-tools-version: \([0-9][0-9.]*\).*|\1|p' Package.swift)
+          if [ -z "$version" ]; then
+            echo "Package.swift has no swift-tools-version." >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v3
+        with:
+          swift-version: ${{ steps.tools.outputs.version }}
+
+      - name: Build
+        run: |
+          swift build -c release
+          bin=$(swift build -c release --show-bin-path)
+          mkdir -p dist
+          find "$bin" -maxdepth 1 -type f \( -name 'lib*.a' -o -name 'lib*.so' \) -exec cp {} dist/ \;
+          if ! find dist -maxdepth 1 -type f | grep -q .; then
+            echo "No static library in ${bin}." >&2
+            exit 1
+          fi
+
+      - name: Test
+        run: swift test
+
+      - name: Attest the build
+        id: attest
+        uses: actions/attest@v4
+        with:
+          subject-path: dist/*
+
+      # After attesting, so the bundle is not one of its own subjects.
+      - name: Add the attestation to the build
+        env:
+          BUNDLE: ${{ steps.attest.outputs.bundle-path }}
+        run: cp "$BUNDLE" dist/attestation.sigstore.json
+
+      - name: Upload the build
+        uses: actions/upload-artifact@v7
+        with:
+          name: build
+          path: dist/
+          if-no-files-found: error
+          retention-days: 14

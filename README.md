@@ -9,6 +9,8 @@
 >
 > Replace this top heading with your own project name and status badge, and replace the rest of this section with what the project does, and show it (e.g. with screenshots).
 >
+> Set [`.release-please-manifest.json`](.release-please-manifest.json) to `0.0.0`. This repository's manifest is `16.4.0` because the last GitHub release is tag [16.4](https://github.com/fulldecent/swift6-module-template/releases/tag/16.4), and Release Please needs a SemVer version to bump.
+>
 
 This is an opinionated template for every Swift module, that provides:
 
@@ -56,6 +58,17 @@ Run the test suite with:
 xcrun swift test
 ```
 
+### Releases
+
+Use `fix:`, `feat:` or `BREAKING CHANGE:` in your commit messages. This triggers our bot to make a release draft pull request. Merging that pull request triggers a new tag and GitHub Release.
+
+The [release workflow](.github/workflows/release.yml) uses [Release Please](https://github.com/googleapis/release-please) with the `simple` release type. [`.release-please-manifest.json`](.release-please-manifest.json) is the last released version. Release Please writes [CHANGELOG.md](CHANGELOG.md) on the release pull request. Commit messages follow [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/).
+
+[Build and test](.github/workflows/build-test.yml) builds and tests a release-mode Linux library, then attests and uploads it. The release includes that library and `release.sigstore.jsonl`, containing build provenance and version attestations. The published library is for Linux. Swift Package Manager uses the git tag.
+
+> [!NOTE]
+> In your GitHub repository settings, under Actions, General, Workflow permissions, select read and write permissions and check "Allow GitHub Actions to create and approve pull requests". Under General, Releases, enable release immutability. Attestations are available for public repositories; private repositories require GitHub Enterprise Cloud.
+
 ## Maintenance and dependency updates
 
 Do this every quarter or so and please send a PR here if you see updates available:
@@ -79,3 +92,4 @@ Do this every quarter or so and please send a PR here if you see updates availab
 1. Swift ignore rules are inlined from [Swift.gitignore](https://github.com/github/gitignore/blob/main/Swift.gitignore). The macOS and secret rules above them come from [project-template](https://github.com/fulldecent/project-template).
 1. This project is built based on [best practices documented in Swift 6 Module Template](https://github.com/fulldecent/swift6-module-template).
 1. This project is built based on [best practices documented in project-template](https://github.com/fulldecent/project-template), release 1.0.0.
+1. Releases follow the [project-template release workflow](https://github.com/fulldecent/project-template/blob/v1.3.0/.github/workflows/release.yml), release 1.3.0. The published file is the Linux static library from `swift build -c release`. project-template publishes `README.md` there, and [rust-template](https://github.com/fulldecent/rust-template) publishes its command-line binary.
