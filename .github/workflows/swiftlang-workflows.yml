@@ -14,8 +14,8 @@ jobs:
       # Package.swift declares swift-tools-version 6.4. Older toolchains cannot load the package.
       linux_swift_versions: '["6.4", "nightly-main", "nightly-6.4.x"]'
       windows_swift_versions: '["6.4", "nightly-main", "nightly-6.4.x"]'
-      macos_xcode_versions: '["swift_6.4"]'
-      enable_macos_checks: true
+      # macOS jobs in that workflow run on Swift.org's self-hosted fleet.
+      enable_macos_checks: false
       enable_wasm_sdk_build: true
 
   embedded-swift:
@@ -39,3 +39,15 @@ jobs:
       api_breakage_check_container_image: swift:6.4-jammy
       format_check_container_image: swift:6.4-jammy
       docs_check_container_image: swift:6.4-jammy
+
+  # GitHub-hosted. macos-26 stops at Xcode 26, which cannot load swift-tools-version 6.4.
+  # https://github.blog/changelog/2026-07-16-xcode-27-runner-image-now-in-public-preview/
+  macos:
+    name: Test on macOS
+    runs-on: xcode-27
+    steps:
+      - name: Check out this commit
+        uses: actions/checkout@v7
+
+      - name: Test
+        run: xcrun swift test
