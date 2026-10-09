@@ -20,7 +20,7 @@
 >
 > And now below is the template, shown for a specific hypothetical project, enjoy!
 
-[![Test](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml/badge.svg?branch=main)](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml)
+[![Test](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml/badge.svg)](https://github.com/fulldecent/swift6-module-template/actions/workflows/swiftlang-workflows.yml)
 
 White Pawn shows a white chess pawn (♙).
 
