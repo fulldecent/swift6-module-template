@@ -71,7 +71,6 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
    4. Select the folder `swift6-module-template` on the desktop (don't double click it).
    5. Click “Save".
 
-
 ### IV. Make your example application depend on your module
 
 1. Close the swift6-module-template project in Xcode. (Xcode will not compile the Example if the module is also open.)
@@ -142,6 +141,6 @@ A previous version of this recipe is also demonstrated in a YouTube flyover at <
        ```sh
        diff -rq --exclude='.git' --exclude='TEMPLATE' ~/Developer/swift6-module-template ~/Desktop/swift6-module-template
        ```
-   
+
        - :white_check_mark: You should see an empty screen indicating no differences (press `q` to close)
        - :mega: If you see differences, please raise an issue in the project repository
