@@ -22,7 +22,8 @@ jobs:
       - name: Setup Node.js (tool runtime)
         uses: actions/setup-node@v7
         with:
-          node-version: "lts/*" # Floating version is appropriate specifically for Prettier and markdownlint
+          # Floating version is appropriate specifically for Prettier and markdownlint.
+          node-version: "lts/*"
 
       - name: Check formatting (Prettier)
         # Command fails if any files do not meet the formatting rules.
